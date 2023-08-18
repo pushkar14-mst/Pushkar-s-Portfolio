@@ -2,7 +2,6 @@ import { useEffect } from "react";
 import "./HeroSection.css";
 const HeroSection = () => {
   useEffect(() => {
-    const mainName = document.getElementById("main-name");
     return () => {
       const typeItInstance = new TypeIt("#role", {
         speed: 50,
@@ -28,6 +27,11 @@ const HeroSection = () => {
           </h1>
           <h2 id="role" />
         </div>
+        <svg className="arrows">
+          <path className="a1" d="M0 0 L30 32 L60 0"></path>
+          <path className="a2" d="M0 20 L30 52 L60 20"></path>
+          <path className="a3" d="M0 40 L30 72 L60 40"></path>
+        </svg>
       </section>
     </>
   );
