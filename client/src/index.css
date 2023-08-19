@@ -18,10 +18,14 @@
 #F1F6F9->grey
 */
 
-body{
-    margin:0;
-    color: #9ba4b5;
-    background-color: rgb(33, 42, 62);
+body {
+  margin: 0;
+  color: #9ba4b5;
+  background-color: rgb(33, 42, 62);
+}
+
+::-webkit-scrollbar {
+  display: none;
 }
 a {
   font-weight: 500;
