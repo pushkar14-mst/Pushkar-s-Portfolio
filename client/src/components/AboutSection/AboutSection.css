@@ -9,18 +9,22 @@
   align-items: center;
   justify-content: center;
   flex-direction: column;
-  height: 550px;
-  width: 450px;
-  background: rgba(155, 164, 181, 0.55);
-  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
-  backdrop-filter: blur(6.5px);
-  -webkit-backdrop-filter: blur(6.5px);
-  border-radius: 10px;
-  border: 1px solid rgba(255, 255, 255, 0.18);
+  padding-left: 5rem;
+  padding-right: 5rem;
 }
 
-#about-intro {
+.about-intro {
   color: #394867;
-  font-weight: 600;
-  font-size: 1.75rem;
+  font-weight: 900;
+  font-size: 2.5rem;
+  white-space: wrap;
+  text-align: left;
+}
+.about-intro-highlighted {
+  color: #9ba4b5;
+  font-weight: 900;
+  font-size: 2.5rem;
+  white-space: wrap;
+  text-align: left;
+  transition: 0.3s ease-in-out;
 }
