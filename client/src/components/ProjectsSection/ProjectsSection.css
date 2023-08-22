@@ -6,17 +6,29 @@
   flex-direction: row;
   align-items: center;
   gap: 5px;
-  overflow-x: scroll;
+  overflow-x: hidden;
+  overflow-y: hidden;
+  scroll-behavior: smooth;
+}
+
+.project-section-container::-webkit-scrollbar {
+  display: block;
+  height: 2px;
+}
+.project-section-container::-webkit-scrollbar-thumb {
+  background-color: #9ba4b5;
 }
 .project-card {
   margin-top: 40px;
   display: flex;
-  width: 540px;
+  width: 480px;
   height: auto;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   opacity: 0.5;
+  padding-bottom: 10px;
+  padding-left: 20px;
 }
 
 .project-card img {
@@ -29,4 +41,25 @@
   opacity: 1;
   z-index: 10;
   transition: opacity 0.3s, transform 0.9s;
+}
+#prev-btn {
+  position: absolute;
+  left: 0;
+  height: 80px;
+  width: 80px;
+  border-radius: 100%;
+  background-color: #9ba4b5;
+  z-index: 10;
+}
+#prev-btn img {
+  transform: translateX(-5px) rotate(180deg);
+}
+#next-btn {
+  position: absolute;
+  right: 0;
+  height: 80px;
+  width: 80px;
+  border-radius: 100%;
+  background-color: #9ba4b5;
+  z-index: 10;
 }
