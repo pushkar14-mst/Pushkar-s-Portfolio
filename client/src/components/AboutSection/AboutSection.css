@@ -1,13 +1,12 @@
 #about-section {
   display: flex;
-  align-items: center;
-  justify-content: center;
   flex-direction: column;
+  z-index: 1;
+  background-color: #9ba4b5;
+  margin: 0%;
 }
 .about-section-container {
   display: flex;
-  align-items: center;
-  justify-content: center;
   flex-direction: column;
   padding-left: 5rem;
   padding-right: 5rem;
@@ -21,7 +20,7 @@
   text-align: left;
 }
 .about-intro-highlighted {
-  color: #9ba4b5;
+  color: #212a3e;
   font-weight: 900;
   font-size: 2.5rem;
   white-space: wrap;

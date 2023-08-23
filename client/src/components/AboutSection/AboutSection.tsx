@@ -1,7 +1,10 @@
 import { useEffect } from "react";
 import "./AboutSection.css";
+import { useDispatch } from "react-redux";
+import { portfolioActions } from "../../store/portfolio-common-store";
 
 const AboutSection = () => {
+  const dispatch = useDispatch();
   useEffect(() => {
     //This is the scroll event handler function. It will be called whenever the user scrolls the page. It iterates through each paragraph with the class .about-intro to check if it's in the visible portion of the viewport.
     const handleScroll = () => {
@@ -17,6 +20,11 @@ const AboutSection = () => {
         } else {
           //If the paragraph is not visible in the viewport, this line removes the about-intro-highlighted class, reverting the highlighting effect.
           paragraph.classList.remove("about-intro-highlighted"); //
+        }
+        if (rect.bottom <= window.innerHeight) {
+          dispatch(portfolioActions.setScrollEnabled());
+        } else {
+          dispatch(portfolioActions.unSetScrollEnabled());
         }
       });
     };
@@ -45,6 +53,7 @@ const AboutSection = () => {
           make a lasting impact. Let's collaborate to bring your digital vision
           to life😉!
         </p>
+        <p></p>
       </div>
     </section>
   );

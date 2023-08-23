@@ -2,20 +2,32 @@ import { useEffect } from "react";
 import "./HeroSection.css";
 const HeroSection = () => {
   useEffect(() => {
-    return () => {
-      const typeItInstance = new TypeIt("#role", {
-        speed: 50,
-        startDelay: 900,
-      })
-        .type("Wb", { delay: 100 })
-        .move(-1, { delay: 100 })
-        .type("e", { delay: 100 })
-        .move(2, { delay: 200 })
-        .type("-Dev.", { delay: 100 })
-        .delete(1)
-        .type("eloper.", { delay: 100 })
-        .go();
-    };
+    const typeItInstance = new TypeIt("#role", {
+      speed: 50,
+      startDelay: 700,
+    })
+      .type("Wb", { delay: 100 })
+      .move(-1, { delay: 200 })
+      .type("e", { delay: 300 })
+      .move(2, { delay: 400 })
+      .type("-Dev.", { delay: 500 })
+      .delete(1)
+      .type("eloper.", { delay: 600 })
+      .go();
+    return () => {};
+  }, []);
+  useEffect(() => {
+    window.addEventListener("scroll", () => {
+      let distance = window.scrollY;
+      let heroSection: any = document.querySelector("#hero-section");
+      let heroName: any = document.querySelector("#main-name");
+      let role: any = document.querySelector("#role");
+      let arrows: any = document.querySelector(".arrows");
+      heroSection.style.transform = `translateY(${distance * 1}px)`;
+      heroName.style.transform = `translateX(${distance * 2}px)`;
+      role.style.transform = `translateX(-${distance * 2}px)`;
+      // arrows.style.transform = `translateY(${distance * 0.7}px)`;
+    });
   }, []);
 
   return (

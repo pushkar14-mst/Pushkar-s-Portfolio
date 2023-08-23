@@ -1,8 +1,14 @@
 import { useEffect, useState } from "react";
 import "./ProjectsSection.css";
+import { useSelector } from "react-redux";
 const ProjectsSection = () => {
   const [scrollPosition, setScrollPosition] = useState(0);
   const [checkHovered, setCheckHovered] = useState(false);
+  const checkScrollActive: boolean = useSelector(
+    (state: any) => state.portfolioCommonStore.scrollEnabled
+  );
+  console.log(checkScrollActive);
+
   let projectCards: any = document.querySelectorAll(".project-card");
   let cardWidth = projectCards[0]?.offsetWidth || 0;
   const handleCarouselScroll = (scrollDirection: string) => {
@@ -22,7 +28,6 @@ const ProjectsSection = () => {
 
   useEffect(() => {
     const projectCards: any = document.querySelectorAll(".project-card");
-    let mid = Math.floor(projectCards.length / 2);
     const handleMouseOver = (index: number) => {
       projectCards.forEach((card: any, i: any) => {
         if (i === index) {
@@ -53,7 +58,7 @@ const ProjectsSection = () => {
 
   return (
     <section id="project-section">
-      <h1>Projects</h1>
+      <h1 style={{ textAlign: "center" }}>Projects</h1>
       <div className="project-section-container">
         <button
           onClick={() => handleCarouselScroll("prev")}
