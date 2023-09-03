@@ -2,14 +2,24 @@
   display: flex;
   flex-direction: column;
   z-index: 1;
-  background-color: #9ba4b5;
+  /* background-color: #9ba4b5; */
+  background: linear-gradient(135deg, #9ba4b5 25%, transparent 25%) -59px 0,
+    linear-gradient(225deg, #9ba4b5 25%, transparent 25%) -59px 0,
+    linear-gradient(315deg, #9ba4b5 25%, transparent 25%),
+    linear-gradient(45deg, #9ba4b5 25%, transparent 25%);
+  background-size: 118px 118px;
+  background-color: #212a3e;
   margin: 0%;
+  height: 100vh;
+  justify-content: center;
+  align-items: center;
 }
 .about-section-container {
   display: flex;
   flex-direction: column;
   padding-left: 5rem;
   padding-right: 5rem;
+  background-color: #9ba4b5;
 }
 
 .about-intro {

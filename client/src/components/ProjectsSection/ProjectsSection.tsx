@@ -1,12 +1,16 @@
 import { useEffect, useState } from "react";
 import "./ProjectsSection.css";
 import { useSelector } from "react-redux";
+import prevIcon from "../../assets/icons8-prev-50.png";
+import nextIcon from "../../assets/icons8-next-50.png";
 const ProjectsSection = () => {
   const [scrollPosition, setScrollPosition] = useState(0);
   const [checkHovered, setCheckHovered] = useState(false);
+
   const checkScrollActive: boolean = useSelector(
     (state: any) => state.portfolioCommonStore.scrollEnabled
   );
+
   console.log(checkScrollActive);
 
   let projectCards: any = document.querySelectorAll(".project-card");
@@ -67,12 +71,7 @@ const ProjectsSection = () => {
             zIndex: `${checkHovered ? "0" : "10"}`,
           }}
         >
-          <img
-            width="50"
-            height="50"
-            src="https://img.icons8.com/ios/50/000000/forward--v1.png"
-            alt="forward--v1"
-          />
+          <img src={prevIcon} alt="forward--v1" />
         </button>
         <div
           className="project-section-inner"
@@ -113,13 +112,34 @@ const ProjectsSection = () => {
           </div>
         </div>
         <button onClick={() => handleCarouselScroll("next")} id="next-btn">
-          <img
-            width="50"
-            height="50"
-            src="https://img.icons8.com/ios/50/000000/forward--v1.png"
-            alt="forward--v1"
-          />
+          <img src={nextIcon} alt="next--v1" />
         </button>
+      </div>
+
+      <div className="project-explained">
+        <div className="project-preview">
+          <img
+            src="https://nativebase.io/img/notion/online-ticket-booking-universal-app.jpg"
+            alt=""
+          />
+        </div>
+        <div className="project-description">
+          <p>
+            BookTheBest: Your Ultimate Flight Fare Solution Welcome to
+            BookTheBest, your go-to online platform for effortless flight fare
+            searches and bookings.
+            <br />
+            This project is a masterpiece, crafted meticulously on the robust
+            MERN stack with TypeScript at its core. At BookTheBest, we put the
+            power in your hands. Users can seamlessly search, compare, and book
+            flights to a myriad of destination cities, with a plethora of
+            airlines and exclusive offers at your fingertips. Our mission? To
+            make affordable flight fares accessible to all travelers.
+            <br />
+            Join us on your journey and experience travel booking like never
+            before!
+          </p>
+        </div>
       </div>
     </section>
   );
