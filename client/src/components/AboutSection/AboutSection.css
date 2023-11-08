@@ -1,39 +1,73 @@
 #about-section {
   display: flex;
   flex-direction: column;
-  z-index: 1;
-  /* background-color: #9ba4b5; */
-  background: linear-gradient(135deg, #9ba4b5 25%, transparent 25%) -59px 0,
-    linear-gradient(225deg, #9ba4b5 25%, transparent 25%) -59px 0,
-    linear-gradient(315deg, #9ba4b5 25%, transparent 25%),
-    linear-gradient(45deg, #9ba4b5 25%, transparent 25%);
-  background-size: 118px 118px;
-  background-color: #212a3e;
+  z-index: 4;
+  position: relative;
   margin: 0%;
   height: 100vh;
   justify-content: center;
   align-items: center;
 }
-.about-section-container {
+.accordian {
   display: flex;
-  flex-direction: column;
-  padding-left: 5rem;
-  padding-right: 5rem;
-  background-color: #9ba4b5;
+
+  width: 805px;
+  height: 320px;
+  overflow: hidden;
+
+  /*Time for some styling*/
+  margin: 100px auto;
+  box-shadow: 0 0 10px 1px rgba(0, 0, 0, 0.35);
+  -webkit-box-shadow: 0 0 10px 1px rgba(0, 0, 0, 0.35);
+  -moz-box-shadow: 0 0 10px 1px rgba(0, 0, 0, 0.35);
 }
 
-.about-intro {
-  color: #394867;
-  font-weight: 900;
-  font-size: 2.5rem;
-  white-space: wrap;
-  text-align: left;
+/*A small hack to prevent flickering on some browsers*/
+.accordian ul {
+  width: 2000px;
+  /*This will give ample space to the last item to move
+	instead of falling down/flickering during hovers.*/
 }
-.about-intro-highlighted {
-  color: #212a3e;
-  font-weight: 900;
-  font-size: 2.5rem;
-  white-space: wrap;
-  text-align: left;
-  transition: 0.3s ease-in-out;
+
+.accordian li {
+  position: relative;
+  display: block;
+  width: 160px;
+  float: left;
+
+  border-left: 1px solid #888;
+
+  box-shadow: 0 0 25px 10px rgba(0, 0, 0, 0.5);
+  -webkit-box-shadow: 0 0 25px 10px rgba(0, 0, 0, 0.5);
+  -moz-box-shadow: 0 0 25px 10px rgba(0, 0, 0, 0.5);
+
+  /*Transitions to give animation effect*/
+  transition: all 0.5s;
+  -webkit-transition: all 0.5s;
+  -moz-transition: all 0.5s;
+  /*If you hover on the images now you should be able to 
+	see the basic accordian*/
+}
+
+/*Reduce with of un-hovered elements*/
+.accordian ul:hover li {
+  width: 40px;
+}
+/*Lets apply hover effects now*/
+/*The LI hover style should override the UL hover style*/
+.accordian ul li:hover {
+  width: 640px;
+}
+
+.accordian li img {
+  display: block;
+}
+
+/*Image title styles*/
+.image_title {
+  background: rgba(0, 0, 0, 0.5);
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 640px;
 }

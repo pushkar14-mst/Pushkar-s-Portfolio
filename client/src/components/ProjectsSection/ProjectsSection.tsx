@@ -7,11 +7,13 @@ import rythmic1 from "../../assets/rythmic_1.png";
 import rythmic2 from "../../assets/rythmic_2.png";
 import rythmic3 from "../../assets/rythmic_3.png";
 import bookTheBest1 from "../../assets/bookTheBest_1.png";
+import ProjectsBg from "./ProjectsBG";
 const ProjectsSection = () => {
   const [scrollPosition, setScrollPosition] = useState(0);
   const [checkHovered, setCheckHovered] = useState(false);
   const [projectSelected, setProjectSelected] = useState(0);
   const [parallaxScroll, setParallaxScroll] = useState(0);
+
   const [isProjectSelectionActive, setIsProjectSelectionActive] =
     useState(false);
   const checkScrollActive: boolean = useSelector(
@@ -112,9 +114,6 @@ const ProjectsSection = () => {
     };
 
     projectCards.forEach((projectCard: any, index: number) => {
-      // if (index === mid) {
-      //   projectCard.classList.add("project-card-active");
-      // }
       projectCard.addEventListener("mouseover", () => {
         handleMouseOver(index);
       });
@@ -136,8 +135,9 @@ const ProjectsSection = () => {
   }, []);
   const handleProjectExplainedScroll = (e) => {
     const scrollTop = e.target.scrollTop;
-    setParallaxScroll(scrollTop * 0.5); // Adjust the multiplier for parallax effect
+    setParallaxScroll(scrollTop * 0.43);
   };
+
   return (
     <section className="project-section">
       <h1 style={{ textAlign: "center" }}>Projects</h1>
@@ -200,34 +200,36 @@ const ProjectsSection = () => {
           <img src={nextIcon} alt="next--v1" />
         </button>
       </div>
+      <ProjectsBg>
+        <div
+          className="project-explained"
+          onScroll={handleProjectExplainedScroll}
+        >
+          {projectDescriptions
+            .filter((project: any) => {
+              return project.id === projectSelected;
+            })
+            .map((projectDescription: ProjectDescription) => {
+              return (
+                <>
+                  <div className="project-preview">
+                    <img src={projectDescription.image} alt="" />
+                  </div>
 
-      <div
-        className="project-explained"
-        onScroll={handleProjectExplainedScroll}
-      >
-        {projectDescriptions
-          .filter((project: any) => {
-            return project.id === projectSelected;
-          })
-          .map((projectDescription: ProjectDescription) => {
-            return (
-              <>
-                <div className="project-preview">
-                  <img src={projectDescription.image} alt="" />
-                </div>
-                <div
-                  className="project-description"
-                  style={{
-                    width: `${projectImageWidth}px`,
-                    transform: `translateY(-${parallaxScroll}px)`,
-                  }}
-                >
-                  {projectDescription.description}
-                </div>
-              </>
-            );
-          })}
-      </div>
+                  <div
+                    className="project-description"
+                    style={{
+                      width: `${projectImageWidth}px`,
+                      transform: `translateY(-${parallaxScroll}px)`,
+                    }}
+                  >
+                    {projectDescription.description}
+                  </div>
+                </>
+              );
+            })}
+        </div>
+      </ProjectsBg>
     </section>
   );
 };

@@ -87,14 +87,16 @@
 }
 
 .project-explained {
+  padding-top: 20px;
   display: flex;
   flex-direction: column;
   width: 100%;
-  height: 600px;
+  height: 650px;
   /* justify-content: center; */
   align-items: center;
   transition: 0.5s cubic-bezier(0.075, 0.82, 0.165, 1);
   overflow: scroll;
+  background: rgba(0, 0, 0, 0.3);
 }
 
 .project-preview {
@@ -105,21 +107,26 @@
   z-index: 0;
 }
 .project-preview img {
-  height: 550px;
   object-fit: cover;
   border-radius: 10px;
+  z-index: 1;
+  width: 100%;
+  height: 550px;
 }
 .project-description {
   display: flex;
   flex-direction: column;
-  color: #212a3e;
+  color: #9ba4b5;
+  background-color: rgb(33, 42, 62);
   font-weight: 700;
   font-size: 1.3rem;
-  margin-left: 20px;
-  z-index: 1;
-  background-color: #9ba4b5;
+  z-index: 2;
+  height: 550px;
   border-radius: 10px;
-  padding: 10px;
+  padding: 1.5rem 2rem;
+  width: inherit;
+  align-items: center;
+  justify-content: center;
 }
 .project-description p {
   white-space: pre-wrap;
