@@ -4,8 +4,8 @@ import { useSelector } from "react-redux";
 import prevIcon from "../../assets/icons8-prev-50.png";
 import nextIcon from "../../assets/icons8-next-50.png";
 import rythmic1 from "../../assets/rythmic_1.png";
-import rythmic2 from "../../assets/rythmic_2.png";
-import rythmic3 from "../../assets/rythmic_3.png";
+// import rythmic2 from "../../assets/rythmic_2.png";
+// import rythmic3 from "../../assets/rythmic_3.png";
 import bookTheBest1 from "../../assets/bookTheBest_1.png";
 import ProjectsBg from "./ProjectsBG";
 const ProjectsSection = () => {
@@ -16,9 +16,9 @@ const ProjectsSection = () => {
 
   const [isProjectSelectionActive, setIsProjectSelectionActive] =
     useState(false);
-  const checkScrollActive: boolean = useSelector(
-    (state: any) => state.portfolioCommonStore.scrollEnabled
-  );
+  // const checkScrollActive: boolean = useSelector(
+  //   (state: any) => state.portfolioCommonStore.scrollEnabled
+  // );
   // how to get type of image of png,jpg
   interface ProjectDescription {
     id: number;

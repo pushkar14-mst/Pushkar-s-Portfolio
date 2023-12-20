@@ -1,8 +1,8 @@
-import { useEffect, useRef } from "react";
+import React, { useEffect, useRef } from "react";
 import "./ExperienceSection.css";
 import { experiences } from "./experiences";
 const ExperienceSection = () => {
-  const bb8Ref = useRef(null);
+  const bb8Ref: React.Ref<any> = useRef(null);
   const myPosRef = useRef(window.innerWidth - window.innerWidth / 5);
 
   useEffect(() => {
@@ -68,7 +68,7 @@ const ExperienceSection = () => {
 
     requestAnimationFrame(roll);
 
-    const handleMouseMove = (event) => {
+    const handleMouseMove = (event: any) => {
       myPosRef.current = event.pageX;
     };
 
@@ -79,7 +79,7 @@ const ExperienceSection = () => {
     };
   }, []);
 
-  const toggleClass = (selector, className, add) => {
+  const toggleClass = (selector: any, className: any, add: any) => {
     document.querySelectorAll(`.${selector}`).forEach((elem) => {
       if (add) {
         elem.classList.add(className);
