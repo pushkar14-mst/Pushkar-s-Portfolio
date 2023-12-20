@@ -1,6 +1,5 @@
 import { useEffect, useState } from "react";
 import "./ProjectsSection.css";
-import { useSelector } from "react-redux";
 import prevIcon from "../../assets/icons8-prev-50.png";
 import nextIcon from "../../assets/icons8-next-50.png";
 import rythmic1 from "../../assets/rythmic_1.png";
@@ -133,7 +132,7 @@ const ProjectsSection = () => {
       projectExplained.classList.add("project-explained-active");
     }
   }, []);
-  const handleProjectExplainedScroll = (e) => {
+  const handleProjectExplainedScroll = (e: any) => {
     const scrollTop = e.target.scrollTop;
     setParallaxScroll(scrollTop * 0.43);
   };

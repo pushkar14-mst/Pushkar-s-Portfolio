@@ -18,7 +18,9 @@ const HeroSection = () => {
       .delete(1)
       .type("eloper.", { delay: 600 })
       .go();
-    return () => {};
+    return () => {
+      typeItInstance.destroy();
+    };
   }, []);
   useEffect(() => {
     window.addEventListener("scroll", () => {
