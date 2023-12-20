@@ -3,6 +3,7 @@ import "./ExperienceSection.css";
 import { experiences } from "./experiences";
 const ExperienceSection = () => {
   const bb8Ref: React.Ref<any> = useRef(null);
+
   const myPosRef = useRef(window.innerWidth - window.innerWidth / 5);
 
   useEffect(() => {
