@@ -92,7 +92,7 @@ const ExperienceSection = () => {
   };
   return (
     <section id="experience-section">
-      <h1>Experience</h1>
+      <h1 style={{ textAlign: "center", color: "#fff" }}>Experience</h1>
       <div className="experience-section-container">
         <div className="experience-container">
           {experiences.map((experience) => {
