@@ -1,6 +1,6 @@
 import { useEffect } from "react";
 import "./HeroSection.css";
-import Starry from "react-starry-sky";
+// import Starry from "react-starry-sky";
 import mountainsBehind from "../../assets/hero-assets/mountains_behind.png";
 import mountainsFront from "../../assets/hero-assets/mountains_front.png";
 import moon from "../../assets/hero-assets/moon.png";
@@ -45,42 +45,42 @@ const HeroSection = () => {
   return (
     <>
       <section id="hero-section">
-        <Starry className="wrapper">
-          <img
-            src={moon}
-            alt="moon"
-            className="moon"
-            id="moon"
-            style={{
-              height: "250px",
-              width: "250px",
-              left: "50%",
-              position: "absolute",
-            }}
-          />
-          <div className="hero">
-            <h1 id="main-name">
-              Pushkar <span id="last-name">Patil</span>
-            </h1>
-            <h2 id="role" />
-          </div>
-          <svg className="arrows">
-            <path className="a1" d="M0 0 L30 32 L60 0"></path>
-            <path className="a2" d="M0 20 L30 52 L60 20"></path>
-            <path className="a3" d="M0 40 L30 72 L60 40"></path>
-          </svg>
+        {/* <Starry className="wrapper"> */}
+        <img
+          src={moon}
+          alt="moon"
+          className="moon"
+          id="moon"
+          style={{
+            height: "250px",
+            width: "250px",
+            left: "50%",
+            position: "absolute",
+          }}
+        />
+        <div className="hero">
+          <h1 id="main-name">
+            Pushkar <span id="last-name">Patil</span>
+          </h1>
+          <h2 id="role" />
+        </div>
+        <svg className="arrows">
+          <path className="a1" d="M0 0 L30 32 L60 0"></path>
+          <path className="a2" d="M0 20 L30 52 L60 20"></path>
+          <path className="a3" d="M0 40 L30 72 L60 40"></path>
+        </svg>
 
-          <img
-            src={mountainsBehind}
-            alt="mountains-behind"
-            className="mountains-behind"
-          />
-          <img
-            src={mountainsFront}
-            alt="mountains-front"
-            className="mountains-front"
-          />
-        </Starry>
+        <img
+          src={mountainsBehind}
+          alt="mountains-behind"
+          className="mountains-behind"
+        />
+        <img
+          src={mountainsFront}
+          alt="mountains-front"
+          className="mountains-front"
+        />
+        {/* </Starry> */}
       </section>
     </>
   );
