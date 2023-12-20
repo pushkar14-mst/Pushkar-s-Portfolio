@@ -1,4 +1,4 @@
-import AboutSection from "./components/AboutSection/AboutSection";
+// import AboutSection from "./components/AboutSection/AboutSection";
 import HeroSection from "./components/HeroSection/HeroSection";
 import ProjectsSection from "./components/ProjectsSection/ProjectsSection";
 import SkillsSection from "./components/SkillsSection/SkillsSection";
@@ -8,7 +8,7 @@ const App = () => {
   return (
     <>
       <HeroSection />
-      <AboutSection />
+      {/* <AboutSection /> */}
       <ProjectsSection />
       <SkillsSection />
       <ExperienceSection />
