@@ -1,4 +1,5 @@
-import { useEffect, useRef } from "react";
+import React, { useEffect, useRef } from "react";
+
 import "./ExperienceSection.css";
 import { experiences } from "./experiences";
 const ExperienceSection = () => {
