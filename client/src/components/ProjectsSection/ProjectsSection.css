@@ -86,6 +86,116 @@
   z-index: 10;
 }
 
+/* light-saber */
+.saber {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.saber-2 {
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+
+#light {
+  background-color: #ddddff;
+  box-shadow: 0px -5px 30px #00b7ff, 0px 0px 30px #00b7ff, 0px 5px 30px #00b7ff;
+  width: 10px;
+  height: 400px;
+  content: "";
+  margin: 0 auto;
+  margin-top: 15px;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+}
+
+#cabo {
+  margin: 0 auto;
+  margin-top: -20px;
+  width: 45px;
+  height: 160px;
+  display: block;
+}
+
+#top {
+  display: block;
+  width: 7px;
+  float: right;
+  border-top-left-radius: 15px;
+  background-color: #525252;
+  height: 20px;
+  margin: 0 10px;
+}
+
+#top-mid,
+#mid {
+  float: left;
+  width: 25px;
+  background-color: #525252;
+  height: 36px;
+  box-shadow: 0px 3px #c8c8c8;
+  margin: 0 10px;
+  margin-bottom: 3px;
+  margin-right: 2px;
+}
+
+#mid {
+  margin-right: 2px;
+}
+
+#little-ball {
+  width: 6px;
+  height: 6px;
+  border-radius: 7px;
+  background-color: red;
+  margin: 0 10px;
+  margin: 4px 4px;
+}
+
+#bottom {
+  float: left;
+  width: 25px;
+  height: 70px;
+  background-color: #525252;
+  margin: 0 auto;
+  display: block;
+}
+
+.stripes {
+  display: block;
+  width: 2px;
+  margin: 10px 1px 0 1px;
+  height: 50px;
+  background-color: #c8c8c8;
+}
+
+.stripes:first-child {
+  float: left;
+  margin-left: 7px;
+}
+.stripes:last-child {
+  float: right;
+  margin-right: 7px;
+}
+
+#inner-bottom {
+  width: 15px;
+  height: 50px;
+  background-color: #c8c8c8;
+  margin: 10px auto;
+}
+
+#button {
+  float: right;
+  height: 20px;
+  width: 2px;
+  background-color: #c8c8c8;
+  margin-right: 6px;
+  margin-top: 30px;
+}
+
 .project-explained {
   padding-top: 20px;
   display: flex;

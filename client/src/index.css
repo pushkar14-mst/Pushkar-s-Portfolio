@@ -5,7 +5,7 @@
 
   color-scheme: light dark;
   color: #9ba4b5;
-  background-color: rgb(33, 42, 62);
+  background-color: #212a3e;
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
@@ -22,6 +22,7 @@ body {
   margin: 0;
   color: #9ba4b5;
   background-color: rgb(33, 42, 62);
+  overflow-x: hidden;
 }
 
 ::-webkit-scrollbar {

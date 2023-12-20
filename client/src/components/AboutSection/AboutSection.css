@@ -8,9 +8,125 @@
   justify-content: center;
   align-items: center;
 }
+
+.intro {
+  width: 500px;
+  height: 200px;
+  position: relative;
+  top: 50vh;
+  margin: -100px auto 0 auto;
+  font-size: 200%;
+  font-weight: 400;
+  color: #4bd5ee;
+  opacity: 0;
+  animation: intro 6s ease-out 1s;
+}
+
+.thanks {
+  width: 700px;
+  height: 350px;
+  background: url("http://i65.tinypic.com/5b33oi.png") no-repeat;
+  background-size: cover;
+  position: absolute;
+  font-size: 3.5em;
+  top: 50%;
+  left: 50%;
+  margin-top: -175px;
+  margin-left: -350px;
+  text-align: center;
+  opacity: 0;
+  animation: thanks 2s linear 15s forwards;
+}
+
+.prologue {
+  width: 1000px;
+  height: 3500px;
+  position: absolute;
+  top: auto;
+  left: 50%;
+  bottom: 0;
+  margin-left: -500px;
+  text-align: justify;
+  font-size: 5em;
+  font-weight: 700;
+  overflow: hidden;
+  transform-origin: 50% 100%;
+  transform: perspective(300px) rotateX(25deg);
+}
+.prologue .text {
+  position: absolute;
+  top: 100%;
+  animation: prologue 40s linear 17s;
+}
+.prologue .text p {
+  margin: 1.35em 0 1.85em 0;
+  line-height: 1.35em;
+  backface-visibility: hidden;
+}
+
+.logo {
+  width: 700px;
+  height: 420px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin: -210px 0 0 -350px;
+  opacity: 0;
+  animation: logo 10s linear 10s;
+}
+.logo img {
+  width: inherit;
+  margin: 0 auto;
+}
+
+@keyframes intro {
+  0%,
+  100% {
+    opacity: 0;
+  }
+  20% {
+    opacity: 1;
+  }
+  90% {
+    opacity: 1;
+  }
+}
+@keyframes prologue {
+  0% {
+    top: 100%;
+    opacity: 1;
+  }
+  98% {
+    opacity: 1;
+  }
+  100% {
+    top: 0%;
+    opacity: 0;
+  }
+}
+@keyframes logo {
+  0% {
+    transform: scale(2.7);
+    opacity: 1;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    transform: scale(0.1);
+  }
+}
+@keyframes thanks {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
 .accordian {
   display: flex;
-
   width: 805px;
   height: 320px;
   overflow: hidden;
@@ -25,8 +141,7 @@
 /*A small hack to prevent flickering on some browsers*/
 .accordian ul {
   width: 2000px;
-  /*This will give ample space to the last item to move
-	instead of falling down/flickering during hovers.*/
+  padding: 0;
 }
 
 .accordian li {
@@ -45,16 +160,12 @@
   transition: all 0.5s;
   -webkit-transition: all 0.5s;
   -moz-transition: all 0.5s;
-  /*If you hover on the images now you should be able to 
-	see the basic accordian*/
 }
 
-/*Reduce with of un-hovered elements*/
 .accordian ul:hover li {
   width: 40px;
 }
-/*Lets apply hover effects now*/
-/*The LI hover style should override the UL hover style*/
+
 .accordian ul li:hover {
   width: 640px;
 }

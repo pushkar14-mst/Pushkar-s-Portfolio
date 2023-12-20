@@ -36,7 +36,7 @@ const HeroSection = () => {
       heroSection.style.transform = `translateY(${distance * 1}px)`;
       heroName.style.transform = `translateX(${distance * 2}px)`;
       role.style.transform = `translateX(-${distance * 2}px)`;
-      // arrows.style.transform = `translateY(${distance * 0.7}px)`;
+      arrows.style.transform = `translateY(${distance * 0.7}px)`;
     });
   }, []);
 

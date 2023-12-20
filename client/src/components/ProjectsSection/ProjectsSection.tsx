@@ -141,6 +141,25 @@ const ProjectsSection = () => {
   return (
     <section className="project-section">
       <h1 style={{ textAlign: "center" }}>Projects</h1>
+      <div className="saber">
+        <div id="light"></div>
+        <div id="cabo">
+          <div id="top"></div>
+
+          <div id="top-mid">
+            <div id="little-ball"></div>
+          </div>
+          <div id="button"></div>
+          <div id="mid"></div>
+          <div id="mid-bottom">
+            <div className="stripes"></div>
+            <div id="bottom">
+              <div id="inner-bottom"></div>
+            </div>
+            <div className="stripes"></div>
+          </div>
+        </div>
+      </div>
       <div className="project-section-container">
         <button
           onClick={() => handleCarouselScroll("prev")}
@@ -199,6 +218,25 @@ const ProjectsSection = () => {
         <button onClick={() => handleCarouselScroll("next")} id="next-btn">
           <img src={nextIcon} alt="next--v1" />
         </button>
+      </div>
+      <div className="saber-2">
+        <div id="light"></div>
+        <div id="cabo">
+          <div id="top"></div>
+
+          <div id="top-mid">
+            <div id="little-ball"></div>
+          </div>
+          <div id="button"></div>
+          <div id="mid"></div>
+          <div id="mid-bottom">
+            <div className="stripes"></div>
+            <div id="bottom">
+              <div id="inner-bottom"></div>
+            </div>
+            <div className="stripes"></div>
+          </div>
+        </div>
       </div>
       <ProjectsBg>
         <div

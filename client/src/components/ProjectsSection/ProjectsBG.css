@@ -9,7 +9,7 @@
   background-image: url("../../assets/ProjectsBg.png");
   background-size: cover;
 
-  animation: scrollBackground 30s linear infinite;
+  animation: scrollBackground 25s linear infinite;
 }
 
 @keyframes scrollBackground {
