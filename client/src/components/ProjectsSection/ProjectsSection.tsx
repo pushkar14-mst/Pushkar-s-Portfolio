@@ -3,8 +3,7 @@ import "./ProjectsSection.css";
 import prevIcon from "../../assets/icons8-prev-50.png";
 import nextIcon from "../../assets/icons8-next-50.png";
 import rythmic1 from "../../assets/rythmic_1.png";
-// import rythmic2 from "../../assets/rythmic_2.png";
-// import rythmic3 from "../../assets/rythmic_3.png";
+import mern_chat from "../../assets/mern_chat.png";
 import bookTheBest1 from "../../assets/bookTheBest_1.png";
 import ProjectsBg from "./ProjectsBG";
 const ProjectsSection = () => {
@@ -21,7 +20,7 @@ const ProjectsSection = () => {
   // how to get type of image of png,jpg
   interface ProjectDescription {
     id: number;
-    description: JSX.Element;
+    description: React.JSX.Element;
     image: string;
   }
   const projectDescriptions: ProjectDescription[] = [
@@ -54,6 +53,30 @@ const ProjectsSection = () => {
         </p>
       ),
       image: rythmic1,
+    },
+    {
+      id: 2,
+      description: (
+        <p>
+          Chat App: A Real-Time Chat Application
+          <br />
+          Step into the world of instantaneous communication with my MERN Chat
+          application. Using MongoDB, Express.js, React, and Node.js, I
+          engineered a real-time messaging platform that revolutionizes the way
+          we connect online. This project integrates the power of web sockets to
+          facilitate instant message delivery, enabling features like message
+          broadcasting, room-based conversations, and robust end-to-end
+          encryption for secure communication. Overcoming hurdles in chat schema
+          design and UI development through thorough research and analysis, I
+          crafted a seamless user experience for real-time interactions.
+          <br />
+          Dive into the realm of rapid communication and experience the fusion
+          of cutting-edge technology and user-centric design in this MERN Chat
+          application, a testament to the possibilities of modern-day
+          communication platforms.
+        </p>
+      ),
+      image: mern_chat,
     },
     {
       id: 3,
@@ -198,10 +221,7 @@ const ProjectsSection = () => {
               setProjectSelected(2);
             }}
           >
-            <img
-              src={"https://i.ytimg.com/vi/HggSXt1Hzfk/maxresdefault.jpg"}
-              alt="project2"
-            />
+            <img src={mern_chat} alt="project2" />
             <h2>Chat App</h2>
           </div>
           <div

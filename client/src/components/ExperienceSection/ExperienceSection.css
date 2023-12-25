@@ -5,7 +5,7 @@
   height: 100vh;
   background-image: url("../../assets/swbg1.jpeg");
   background-size: cover;
-  z-index: 100;
+  z-index: 40;
 }
 
 .experience-section-container {

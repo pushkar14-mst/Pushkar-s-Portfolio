@@ -1,17 +1,38 @@
+import { useEffect, useState } from "react";
 // import AboutSection from "./components/AboutSection/AboutSection";
 import HeroSection from "./components/HeroSection/HeroSection";
 import ProjectsSection from "./components/ProjectsSection/ProjectsSection";
 import SkillsSection from "./components/SkillsSection/SkillsSection";
 import ExperienceSection from "./components/ExperienceSection/ExperienceSection";
+import ProjectMobileSection from "./components/ProjectsSection/ProjectMobileSection";
+import HeroMobileSection from "./components/HeroSection/HeroMobileSection";
+import ExperienceMobileSection from "./components/ExperienceSection/ExperienceMobileSection";
 
 const App = () => {
+  const [windowSize, setWindowSize] = useState([
+    window.innerWidth,
+    window.innerHeight,
+  ]);
+  useEffect(() => {
+    const handleWindowResize = () => {
+      setWindowSize([window.innerWidth, window.innerHeight]);
+    };
+    window.addEventListener("resize", handleWindowResize);
+    return () => {
+      window.removeEventListener("resize", handleWindowResize);
+    };
+  });
   return (
     <>
-      <HeroSection />
+      {windowSize[0] > 1258 ? <HeroSection /> : <HeroMobileSection />}
       {/* <AboutSection /> */}
-      <ProjectsSection />
+      {windowSize[0] > 1258 ? <ProjectsSection /> : <ProjectMobileSection />}
       <SkillsSection />
-      <ExperienceSection />
+      {windowSize[0] > 1258 ? (
+        <ExperienceSection />
+      ) : (
+        <ExperienceMobileSection />
+      )}
     </>
   );
 };

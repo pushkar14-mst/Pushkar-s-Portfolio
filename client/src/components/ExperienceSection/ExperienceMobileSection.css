@@ -1,0 +1,58 @@
+#experience-section-mobile {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+}
+.experience-mobile-container {
+  /* position: relative; */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  z-index: 90;
+}
+.experience-job-card {
+  display: flex;
+  padding: 20px;
+  flex-direction: column;
+  gap: 10px;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  background-color: #060c21;
+  width: 400px;
+  height: 100%;
+}
+.experience-job-card:before {
+  content: "";
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  right: -2px;
+  bottom: -2px;
+  background: #fff;
+  z-index: -1;
+}
+
+.experience-job-card:after {
+  content: "";
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  right: -2px;
+  bottom: -2px;
+  background: #fff;
+  z-index: -2;
+  filter: blur(40px);
+}
+
+.experience-job-card:before,
+.experience-job-card:after {
+  background: linear-gradient(235deg, #2196f3, #010615, #f00000);
+}
+#description-mb {
+  color: #9ba4b5;
+  font-size: 1rem;
+  text-align: justify;
+}

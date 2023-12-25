@@ -45,25 +45,23 @@ const SkillsSection = () => {
   return (
     <>
       <section className="skills-section">
+        <h1 id="skills-h1">Skills</h1>
         <div className="skills-section-container">
-          <h1 id="skills-h1">Skills</h1>
           <div className="skills">
             {skillsImages.map((skill: any) => {
               return (
-                <>
-                  <div className="box">
-                    <div className="imgBx">
-                      <img src={skill.img} alt="STAR-WARS-THE-FORCE" />
-                    </div>
-                    <div className="content">
-                      <h2>
-                        {skill.heading}
-                        <br />
-                        <span>{skill.usage}</span>
-                      </h2>
-                    </div>
+                <div className="box">
+                  <div className="imgBx">
+                    <img src={skill.img} alt="STAR-WARS-THE-FORCE" />
                   </div>
-                </>
+                  <div className="content">
+                    <h2>
+                      {skill.heading}
+                      <br />
+                      <span>{skill.usage}</span>
+                    </h2>
+                  </div>
+                </div>
               );
             })}
           </div>

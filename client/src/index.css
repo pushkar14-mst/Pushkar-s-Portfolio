@@ -17,11 +17,25 @@
 #394867->navy
 #F1F6F9->grey
 */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 75px;
+}
 
 body {
   margin: 0;
   color: #9ba4b5;
   background-color: rgb(12, 16, 25);
+  overflow-x: hidden;
+}
+
+html {
   overflow-x: hidden;
 }
 
