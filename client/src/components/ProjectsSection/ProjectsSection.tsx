@@ -162,7 +162,7 @@ const ProjectsSection = () => {
 
   return (
     <section className="project-section">
-      <h1 style={{ textAlign: "center" }}>Projects</h1>
+      <h1 style={{ textAlign: "center", margin: "2.5rem" }}>Projects</h1>
       <div className="saber">
         <div id="light"></div>
         <div id="cabo">
