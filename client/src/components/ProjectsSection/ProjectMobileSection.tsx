@@ -4,6 +4,8 @@ import "./ProjectMobileSection.css";
 import rythmic1 from "../../assets/rythmic_1.png";
 import mern_chat from "../../assets/mern_chat.png";
 import bookTheBest1 from "../../assets/bookTheBest_1.png";
+import sTu from "../../assets/sTu.png";
+import explorehub from "../../assets/explorehub.png";
 import { useState } from "react";
 interface ProjectDescription {
   id: number;
@@ -89,12 +91,67 @@ const projectDescriptions: ProjectDescription[] = [
     image: bookTheBest1,
     title: "BookTheBest",
   },
+  {
+    id: 4,
+    title: "StructureTheUnstructured",
+    description: (
+      <p>
+        Unlocking the potential hidden within unstructured data formats—audio,
+        image files, and network logs—my data analysis tool stands as a
+        testament to structured insight generation. Leveraging the power of
+        React and TypeScript on the client-side, this tool empowers users to
+        effortlessly upload multiple unstructured files, transforming them into
+        downloadable CSV formatted files.
+        <br />
+        The architecture orchestrates a seamless backend process using Flask.
+        Upon file upload, Flask triggers a robust modeling and formatting
+        pipeline, culminating in the generation of structured CSV files. These
+        files are then served to the user through a RESTful interface, providing
+        easily accessible and actionable data insights.
+        <br />
+        Experience the fusion of user-friendly front-end design with a powerful
+        backend pipeline in this data analysis tool. Witness firsthand the
+        transformation of unstructured data into valuable, structured insights,
+        showcasing the potential for informed decision-making in the digital
+        landscape.
+      </p>
+    ),
+    image: sTu,
+  },
+  {
+    id: 5,
+    title: "ExploreHub",
+    description: (
+      <p>
+        ExploreHub: Your Gateway to Tailored Travel Experiences
+        <br />
+        Journey into the realm of curated travel experiences with ExploreHub, a
+        bespoke tour packages booking website meticulously crafted using the
+        MERN stack. Designed to cater to the wanderlust of globetrotters,
+        ExploreHub offers a diverse array of meticulously curated tour packages,
+        each expertly crafted to ensure unforgettable adventures.
+        <br />
+        Users delve into a world of possibilities, exploring diverse tour
+        options, each complete with detailed day-wise itineraries, pricing
+        information, and trip durations. To ensure top-notch security, I
+        implemented DUO 2FA for robust user authentication, enhancing the safety
+        of user accounts and sensitive information.
+        <br />
+        Embark on a seamless travel booking journey with ExploreHub, where
+        wanderers find their perfect escapades and embark on adventures tailored
+        to their desires. Witness the convergence of cutting-edge technology and
+        travel expertise in this platform dedicated to delivering tailored and
+        secure travel experiences.
+      </p>
+    ),
+    image: explorehub,
+  },
 ];
 const to = (i: number) => ({
   x: 0,
-  y: i * -100,
+  y: i * -50,
   scale: 1,
-  rot: -10 + Math.random() * 20,
+  rot: -5 + Math.random() * 20,
   delay: i * 100,
 });
 const from = (_i: number) => ({ x: 0, rot: 0, scale: 1.5, y: -1000 });
@@ -147,15 +204,19 @@ function Deck() {
       >
         <div className="project-slide-card">
           <img src={projectDescriptions[i].image} alt="" />
-          <h1
-            style={{
-              textAlign: "center",
-              marginTop: "10px",
-              fontSize: "1.5rem",
-            }}
-          >
-            {projectDescriptions[i].title}
-          </h1>
+          {projectDescriptions[i].title.length < 24 ? (
+            <h1
+              style={{
+                textAlign: "center",
+                marginTop: "10px",
+                fontSize: "1.5rem",
+              }}
+            >
+              {projectDescriptions[i].title}
+            </h1>
+          ) : (
+            <h3>{projectDescriptions[i].title}</h3>
+          )}
         </div>
       </animated.div>
     </animated.div>

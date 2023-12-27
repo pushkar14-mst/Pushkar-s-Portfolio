@@ -5,12 +5,7 @@
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  background: rgb(33, 42, 62);
-  background: radial-gradient(
-    circle,
-    rgba(33, 42, 62, 1) 22%,
-    rgba(57, 72, 103, 1) 100%
-  );
+  background: #010615;
 }
 /* .project-section-active{
   height: ;
@@ -18,12 +13,14 @@
 } */
 .project-section-container {
   display: flex;
+  z-index: 10;
   flex-direction: row;
   align-items: center;
   overflow-x: hidden;
   overflow-y: hidden;
   scroll-behavior: smooth;
   position: relative;
+  max-width: 100%;
 }
 
 .project-section-container::-webkit-scrollbar {
@@ -65,7 +62,7 @@
   justify-content: center;
   align-items: center;
   position: absolute;
-  left: 0;
+  left: 40px;
   height: 80px;
   width: 80px;
   border-radius: 100%;
@@ -78,7 +75,7 @@
   justify-content: center;
   align-items: center;
   position: absolute;
-  right: 0;
+  right: 40px;
   height: 80px;
   width: 80px;
   border-radius: 100%;
@@ -218,22 +215,21 @@
 }
 .project-preview img {
   object-fit: cover;
-  border-radius: 10px;
   z-index: 1;
   width: 100%;
   height: 550px;
 }
 .project-description {
+  position: relative;
   display: flex;
   flex-direction: column;
   color: #9ba4b5;
-  background-color: rgb(33, 42, 62);
+  background-color: #060c21;
   font-weight: 700;
   font-size: 1.3rem;
   z-index: 2;
   height: 550px;
-  border-radius: 10px;
-  padding: 1.5rem 2rem;
+
   width: inherit;
   align-items: center;
   justify-content: center;
@@ -242,12 +238,30 @@
   white-space: pre-wrap;
   text-align: justify;
 }
+.project-description:before {
+  content: "";
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  right: -2px;
+  bottom: -2px;
+  background: #fff;
+  z-index: -1;
+}
 
-/* 
-background-color: #e5e5f7;
-opacity: 0.8;
-background-image:  linear-gradient(#444cf7 2px, transparent 2px), linear-gradient(90deg, #444cf7 2px, transparent 2px), linear-gradient(#444cf7 1px, transparent 1px), linear-gradient(90deg, #444cf7 1px, #e5e5f7 1px);
-background-size: 50px 50px, 50px 50px, 10px 10px, 10px 10px;
-background-position: -2px -2px, -2px -2px, -1px -1px, -1px -1px;
+.project-description:after {
+  content: "";
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  right: -2px;
+  bottom: -2px;
+  background: #fff;
+  z-index: -2;
+  filter: blur(40px);
+}
 
-*/
+.project-description:before,
+.project-description:after {
+  background: linear-gradient(235deg, #2196f3, #010615, #f00000);
+}

@@ -37,8 +37,18 @@ const SkillsSection = () => {
       usage: "Server Side Programming, Data Science",
     },
     {
+      img: "https://www.bainsight.com/wp-content/uploads/2012/09/google-cloud-logo.png",
+      heading: "Machine Learning",
+      usage: "Data Science",
+    },
+    {
       img: "https://global.discourse-cdn.com/auth0/optimized/3X/9/c/9cc1ef8534a9d54c982759ede0f686630974ad79_2_1024x919.png",
       heading: "Django",
+      usage: "Server Side Programming",
+    },
+    {
+      img: "https://www.vectorlogo.zone/logos/pocoo_flask/pocoo_flask-ar21.png",
+      heading: "Flask",
       usage: "Server Side Programming",
     },
   ];

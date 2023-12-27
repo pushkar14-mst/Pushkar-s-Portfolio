@@ -5,9 +5,17 @@
   height: 100vh;
   background-image: url("../../assets/swbg1.jpeg");
   background-size: cover;
-  z-index: 40;
+  z-index: 0;
 }
 
+#experience-h1 {
+  text-align: center;
+  color: #9ba4b5;
+  margin: 2.5rem;
+  background: -webkit-linear-gradient(235deg, #2196f3, #010615, #f00000);
+  -webkit-background-clip: text;
+  -webkit-text-stroke: 4px transparent;
+}
 .experience-section-container {
   position: relative;
   display: flex;

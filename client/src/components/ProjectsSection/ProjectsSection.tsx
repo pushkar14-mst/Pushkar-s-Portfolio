@@ -5,7 +5,10 @@ import nextIcon from "../../assets/icons8-next-50.png";
 import rythmic1 from "../../assets/rythmic_1.png";
 import mern_chat from "../../assets/mern_chat.png";
 import bookTheBest1 from "../../assets/bookTheBest_1.png";
+import sTu from "../../assets/sTu.png";
+import explorehub from "../../assets/explorehub.png";
 import ProjectsBg from "./ProjectsBG";
+
 const ProjectsSection = () => {
   const [scrollPosition, setScrollPosition] = useState(0);
   const [checkHovered, setCheckHovered] = useState(false);
@@ -14,10 +17,7 @@ const ProjectsSection = () => {
 
   const [isProjectSelectionActive, setIsProjectSelectionActive] =
     useState(false);
-  // const checkScrollActive: boolean = useSelector(
-  //   (state: any) => state.portfolioCommonStore.scrollEnabled
-  // );
-  // how to get type of image of png,jpg
+
   interface ProjectDescription {
     id: number;
     description: React.JSX.Element;
@@ -98,6 +98,61 @@ const ProjectsSection = () => {
         </p>
       ),
       image: bookTheBest1,
+    },
+    {
+      id: 4,
+      description: (
+        <p>
+          StructureTheUnstructured: A Data Analysis Tool
+          <br />
+          Unlocking the potential hidden within unstructured data formats—audio,
+          image files, and network logs—my data analysis tool stands as a
+          testament to structured insight generation. Leveraging the power of
+          React and TypeScript on the client-side, this tool empowers users to
+          effortlessly upload multiple unstructured files, transforming them
+          into downloadable CSV formatted files.
+          <br />
+          The architecture orchestrates a seamless backend process using Flask.
+          Upon file upload, Flask triggers a robust modeling and formatting
+          pipeline, culminating in the generation of structured CSV files. These
+          files are then served to the user through a RESTful interface,
+          providing easily accessible and actionable data insights.
+          <br />
+          Experience the fusion of user-friendly front-end design with a
+          powerful backend pipeline in this data analysis tool. Witness
+          firsthand the transformation of unstructured data into valuable,
+          structured insights, showcasing the potential for informed
+          decision-making in the digital landscape.
+        </p>
+      ),
+      image: sTu,
+    },
+    {
+      id: 5,
+      description: (
+        <p>
+          ExploreHub: Your Gateway to Tailored Travel Experiences
+          <br />
+          Journey into the realm of curated travel experiences with ExploreHub,
+          a bespoke tour packages booking website meticulously crafted using the
+          MERN stack. Designed to cater to the wanderlust of globetrotters,
+          ExploreHub offers a diverse array of meticulously curated tour
+          packages, each expertly crafted to ensure unforgettable adventures.
+          <br />
+          Users delve into a world of possibilities, exploring diverse tour
+          options, each complete with detailed day-wise itineraries, pricing
+          information, and trip durations. To ensure top-notch security, I
+          implemented DUO 2FA for robust user authentication, enhancing the
+          safety of user accounts and sensitive information.
+          <br />
+          Embark on a seamless travel booking journey with ExploreHub, where
+          wanderers find their perfect escapades and embark on adventures
+          tailored to their desires. Witness the convergence of cutting-edge
+          technology and travel expertise in this platform dedicated to
+          delivering tailored and secure travel experiences.
+        </p>
+      ),
+      image: explorehub,
     },
   ];
 
@@ -182,6 +237,7 @@ const ProjectsSection = () => {
           </div>
         </div>
       </div>
+
       <div className="project-section-container">
         <button
           onClick={() => handleCarouselScroll("prev")}
@@ -233,6 +289,24 @@ const ProjectsSection = () => {
             <img src={bookTheBest1} alt="project3" />
             <h2>BookTheBest</h2>
           </div>
+          <div
+            className="project-card"
+            onClick={() => {
+              setProjectSelected(4);
+            }}
+          >
+            <img src={sTu} alt="project4" />
+            <h2>StructureTheUnstructured</h2>
+          </div>
+          <div
+            className="project-card"
+            onClick={() => {
+              setProjectSelected(5);
+            }}
+          >
+            <img src={explorehub} alt="project5" />
+            <h2>ExploreHub</h2>
+          </div>
         </div>
         <button onClick={() => handleCarouselScroll("next")} id="next-btn">
           <img src={nextIcon} alt="next--v1" />
@@ -257,6 +331,7 @@ const ProjectsSection = () => {
           </div>
         </div>
       </div>
+
       <ProjectsBg>
         <div
           className="project-explained"
@@ -280,7 +355,14 @@ const ProjectsSection = () => {
                       transform: `translateY(-${parallaxScroll}px)`,
                     }}
                   >
-                    {projectDescription.description}
+                    <div
+                      style={{
+                        backgroundColor: "#060c21",
+                        padding: "1.5rem 2rem",
+                      }}
+                    >
+                      {projectDescription.description}
+                    </div>
                   </div>
                 </>
               );
