@@ -5,7 +5,7 @@ import nextIcon from "../../assets/icons8-next-50.png";
 import rythmic1 from "../../assets/rythmic_1.png";
 import mern_chat from "../../assets/mern_chat.png";
 import bookTheBest1 from "../../assets/bookTheBest_1.png";
-import sTu from "../../assets/sTu.png";
+import sTu from "../../assets/stu.png";
 import explorehub from "../../assets/explorehub.png";
 import ProjectsBg from "./ProjectsBG";
 
