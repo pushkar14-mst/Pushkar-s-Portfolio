@@ -10,7 +10,7 @@ import ExperienceMobileSection from "./components/ExperienceSection/ExperienceMo
 import { Canvas } from "@react-three/fiber";
 import { OrbitControls } from "@react-three/drei";
 import Scene from "./components/Logo/Scene";
-import AboutSection from "./components/AboutSection/AboutSection";
+// import AboutSection from "./components/AboutSection/AboutSection";
 const App = () => {
   const [windowSize, setWindowSize] = useState([
     window.innerWidth,

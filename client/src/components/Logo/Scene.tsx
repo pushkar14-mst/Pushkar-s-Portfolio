@@ -13,6 +13,7 @@ export default function Scene({ ...props }) {
   const handleScroll = () => {
     const position = window.scrollY;
     setScrollPos(position);
+    console.log(scrollPos);
   };
   useFrame(() => {
     scene.current.rotation.y += 0.004;
