@@ -32,7 +32,9 @@ const HeroSection = () => {
       let moon: any = document.querySelector(".moon");
       let mountains_behind: any = document.querySelector(".mountains-behind");
       let mountains_front: any = document.querySelector(".mountains-front");
+      let airBalloon: any = document.querySelector(".balloon-container1");
       moon.style.top = distance * 1.05 + "px";
+      airBalloon.style.top = distance * 0.7 + "px";
       mountains_behind.style.transform = `translateY(${distance * -1}px)`;
       mountains_front.style.transform = `translateY(${distance * -0.5}px)`;
       heroSection.style.transform = `translateY(${distance * 1}px)`;
@@ -46,6 +48,32 @@ const HeroSection = () => {
     <>
       <section id="hero-section">
         <StarrySky>
+          <div className="balloon-container1">
+            <div className="balloon1">
+              <span id="span1"></span>
+              <span id="span2"></span>
+
+              {/* <a
+                className="fa-brands fa-github"
+                href="https://github.com/pushkar14-mst"
+                style={{
+                  fontSize: "3rem",
+                  rotate: "-135deg",
+                  transform: "translate(-50%, -50%)",
+                }}
+              />
+
+              <i
+                className="fa-brands fa-linkedin"
+                style={{
+                  fontSize: "3rem",
+                  rotate: "-135deg",
+                  transform: "translate(-220%, -170%)",
+                }}
+              /> */}
+              <span id="span3"></span>
+            </div>
+          </div>
           <img
             src={moon}
             alt="moon"

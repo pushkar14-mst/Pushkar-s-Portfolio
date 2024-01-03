@@ -71,6 +71,70 @@
   -webkit-animation: arrow 2s infinite;
 }
 
+.balloon1 {
+  display: inline-block;
+  position: relative;
+  min-height: 16em;
+  min-width: 16em;
+  border-radius: 150%;
+  border-bottom-left-radius: 425%;
+  border-bottom-right-radius: 425%;
+  border-top-left-radius: 425%;
+  border-top-radius: 220%;
+  background: linear-gradient(5deg, #2b114a, #6274bb);
+  transform: rotate(135deg);
+  z-index: -1;
+}
+
+#span1 {
+  position: relative;
+  top: -5px;
+  left: 210px;
+  display: inline-block;
+  min-height: 3em;
+  min-width: 3em;
+  border-radius: 50%;
+  border-bottom-left-radius: 52%;
+  border-bottom-right-radius: 72%;
+  border-top-left-radius: 72%;
+  border-top-right-radius: 420%;
+  border: 2px solid #d2691e;
+  border-top-color: transparent;
+  border-right-color: transparent;
+  transform: rotate(180deg);
+  z-index: -8;
+}
+
+#span2 {
+  position: relative;
+  bottom: 60px;
+  top: -45px;
+  left: 185px;
+  right: 450px;
+  display: inline-block;
+  height: 40px;
+  width: 60px;
+  border: 3px;
+  background-color: #9ba4b5;
+  transform: rotate(45deg);
+}
+
+.balloon-container1 {
+  position: absolute;
+  top: 0;
+  animation: balloonmove 40s ease-in-out infinite;
+  z-index: 10;
+}
+
+@keyframes balloonmove {
+  0%,
+  100% {
+    transform: translateX(0%);
+  }
+  90% {
+    transform: translateX(90%);
+  }
+}
 @keyframes arrow {
   0% {
     opacity: 0;
