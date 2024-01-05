@@ -28,7 +28,7 @@ const App = () => {
   return (
     <>
       {windowSize[0] > 1258 ? <HeroSection /> : <HeroMobileSection />}
-      <AboutSection />
+      {windowSize[0] > 1258 && <AboutSection />}
       <Canvas
         shadows
         flat
