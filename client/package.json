@@ -16,6 +16,7 @@
     "@reduxjs/toolkit": "^1.9.5",
     "@splinetool/loader": "^1.0.17",
     "@splinetool/r3f-spline": "^1.0.2",
+    "@splinetool/react-spline": "^2.2.6",
     "@types/animejs": "^3.1.12",
     "animejs": "^3.2.2",
     "react": "^18.2.0",

@@ -1,9 +1,18 @@
 #about-section {
-  z-index: 5;
+  position: relative;
+  z-index: 50;
   background-color: #010615;
 }
 
 .about-section-container {
-  /* position: relative; */
+  position: relative;
   height: 100vh;
+}
+
+#moon-abt {
+  height: 250px;
+  width: 250px;
+  left: 70%;
+  position: absolute;
+  z-index: 2;
 }
