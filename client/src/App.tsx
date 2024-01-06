@@ -29,23 +29,25 @@ const App = () => {
     <>
       {windowSize[0] > 1258 ? <HeroSection /> : <HeroMobileSection />}
       {windowSize[0] > 1258 && <AboutSection />}
-      <Canvas
-        shadows
-        flat
-        linear
-        style={{
-          position: "fixed",
-          top: 0,
-          left: 0,
-          height: "450vh",
-          width: "100%",
-          zIndex: 3,
-          overflow: "hidden",
-        }}
-      >
-        <Scene />
-        <OrbitControls enableZoom={false} />
-      </Canvas>
+      {windowSize[0] > 1258 && (
+        <Canvas
+          shadows
+          flat
+          linear
+          style={{
+            position: "fixed",
+            top: 0,
+            left: 0,
+            height: "450vh",
+            width: "100%",
+            zIndex: 3,
+            overflow: "hidden",
+          }}
+        >
+          <Scene />
+          <OrbitControls enableZoom={false} />
+        </Canvas>
+      )}
       {windowSize[0] > 1258 ? <ProjectsSection /> : <ProjectMobileSection />}
       <SkillsSection />
       {windowSize[0] > 1258 ? (
