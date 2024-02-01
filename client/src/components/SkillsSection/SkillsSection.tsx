@@ -47,8 +47,8 @@ const SkillsSection = () => {
       usage: "Server Side Programming",
     },
     {
-      img: "https://www.vectorlogo.zone/logos/pocoo_flask/pocoo_flask-ar21.png",
-      heading: "Flask",
+      img: "https://upload.wikimedia.org/wikipedia/commons/thumb/e/ee/.NET_Core_Logo.svg/1024px-.NET_Core_Logo.svg.png",
+      heading: "ASP.NET",
       usage: "Server Side Programming",
     },
   ];
