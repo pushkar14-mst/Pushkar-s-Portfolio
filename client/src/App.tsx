@@ -11,11 +11,18 @@ import { Canvas } from "@react-three/fiber";
 import { OrbitControls } from "@react-three/drei";
 import Scene from "./components/Logo/Scene";
 import AboutSection from "./components/AboutSection/AboutSection";
+import Preloader from "./components/Preloader/Preloader";
 const App = () => {
+  const [isLoading, setIsLoading] = useState(true);
   const [windowSize, setWindowSize] = useState([
     window.innerWidth,
     window.innerHeight,
   ]);
+  useEffect(() => {
+    setTimeout(() => {
+      setIsLoading(false);
+    }, 15000);
+  }, []);
   useEffect(() => {
     const handleWindowResize = () => {
       setWindowSize([window.innerWidth, window.innerHeight]);
@@ -27,33 +34,43 @@ const App = () => {
   });
   return (
     <>
-      {windowSize[0] > 1258 ? <HeroSection /> : <HeroMobileSection />}
-      {windowSize[0] > 1258 && <AboutSection />}
-      {windowSize[0] > 1258 && (
-        <Canvas
-          shadows
-          flat
-          linear
-          style={{
-            position: "fixed",
-            top: 0,
-            left: 0,
-            height: "450vh",
-            width: "100%",
-            zIndex: 3,
-            overflow: "hidden",
-          }}
-        >
-          <Scene />
-          <OrbitControls enableZoom={false} />
-        </Canvas>
-      )}
-      {windowSize[0] > 1258 ? <ProjectsSection /> : <ProjectMobileSection />}
-      <SkillsSection />
-      {windowSize[0] > 1258 ? (
-        <ExperienceSection />
+      {isLoading ? (
+        <Preloader />
       ) : (
-        <ExperienceMobileSection />
+        <>
+          {windowSize[0] > 1258 ? <HeroSection /> : <HeroMobileSection />}
+          {windowSize[0] > 1258 && <AboutSection />}
+          {windowSize[0] > 1258 && (
+            <Canvas
+              shadows
+              flat
+              linear
+              style={{
+                position: "fixed",
+                top: 0,
+                left: 0,
+                height: "450vh",
+                width: "100%",
+                zIndex: 3,
+                overflow: "hidden",
+              }}
+            >
+              <Scene />
+              <OrbitControls enableZoom={false} />
+            </Canvas>
+          )}
+          {windowSize[0] > 1258 ? (
+            <ProjectsSection />
+          ) : (
+            <ProjectMobileSection />
+          )}
+          <SkillsSection />
+          {windowSize[0] > 1258 ? (
+            <ExperienceSection />
+          ) : (
+            <ExperienceMobileSection />
+          )}
+        </>
       )}
     </>
   );
