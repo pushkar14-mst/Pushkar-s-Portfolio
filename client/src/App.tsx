@@ -21,7 +21,7 @@ const App = () => {
   useEffect(() => {
     setTimeout(() => {
       setIsLoading(false);
-    }, 15000);
+    }, 20000);
   }, []);
   useEffect(() => {
     const handleWindowResize = () => {
