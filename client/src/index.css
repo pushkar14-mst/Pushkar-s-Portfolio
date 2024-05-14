@@ -1,12 +1,9 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap");
+
 :root {
-  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
-  line-height: 1.5;
-  font-weight: 400;
+  font-family: "Inter", sans-serif;
 
   color-scheme: light dark;
-  color: #9ba4b5;
-  background-color: #212a3e;
-
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
@@ -30,8 +27,6 @@ html {
 
 body {
   margin: 0;
-  color: #9ba4b5;
-  background-color: #060c21;
   overflow-x: hidden;
 }
 
