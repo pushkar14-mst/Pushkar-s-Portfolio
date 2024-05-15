@@ -2,10 +2,8 @@
   position: relative;
   display: flex;
   flex-direction: column;
-  height: 120vh;
   z-index: 5;
   width: 100%;
-  background-color: #010615;
 }
 
 #skills-h1 {

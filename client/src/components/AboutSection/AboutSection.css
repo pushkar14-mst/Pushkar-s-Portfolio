@@ -1,18 +1,27 @@
 #about-section {
   position: relative;
-  z-index: 50;
-  background-color: #010615;
-}
-
-.about-section-container {
-  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
   height: 100vh;
+  z-index: 2;
+  overflow: hidden;
+
+  background: radial-gradient(
+    66.09% 66.09% at 12.27% 0%,
+    #00b4d8 0%,
+    #05062e 81.32%
+  );
 }
 
-#moon-abt {
-  height: 250px;
-  width: 250px;
-  left: 70%;
-  position: absolute;
-  z-index: 2;
+.code-block {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 0 50px 0;
+}
+.token.keyword {
+  color: #00b4d8;
 }

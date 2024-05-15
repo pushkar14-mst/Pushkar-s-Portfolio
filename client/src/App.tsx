@@ -27,8 +27,8 @@ const App = () => {
   return (
     <>
       <>
-        {windowSize[0] > 1258 ? <HeroSection /> : <HeroMobileSection />}
-        {windowSize[0] > 1258 && <AboutSection />}
+        <HeroSection />
+        <AboutSection />
         {windowSize[0] > 1258 ? <ProjectsSection /> : <ProjectMobileSection />}
         <SkillsSection />
         {windowSize[0] > 1258 ? (
