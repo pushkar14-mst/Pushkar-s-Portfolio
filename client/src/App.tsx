@@ -5,9 +5,8 @@ import ProjectsSection from "./components/ProjectsSection/ProjectsSection";
 import SkillsSection from "./components/SkillsSection/SkillsSection";
 import ExperienceSection from "./components/ExperienceSection/ExperienceSection";
 import ProjectMobileSection from "./components/ProjectsSection/ProjectMobileSection";
-import HeroMobileSection from "./components/HeroSection/HeroMobileSection";
+// import HeroMobileSection from "./components/HeroSection/HeroMobileSection";
 import ExperienceMobileSection from "./components/ExperienceSection/ExperienceMobileSection";
-
 import AboutSection from "./components/AboutSection/AboutSection";
 const App = () => {
   const [windowSize, setWindowSize] = useState([
@@ -27,6 +26,7 @@ const App = () => {
   return (
     <>
       <>
+        <div className="cursor" />
         <HeroSection />
         <AboutSection />
         {windowSize[0] > 1258 ? <ProjectsSection /> : <ProjectMobileSection />}

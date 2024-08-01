@@ -4,6 +4,12 @@
   flex-direction: column;
   z-index: 5;
   width: 100%;
+  height: 100vh;
+  background: url("../../assets/bg_gradient_1.png");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
 }
 
 #skills-h1 {

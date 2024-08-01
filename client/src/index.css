@@ -2,7 +2,7 @@
 
 /* 
 new scheme
-#05062e- dark blue
+#09023b- dark blue
 #0077b6- teal
 #00b4d8- aqua
 #90e0ef- light aqua
@@ -15,7 +15,7 @@ new scheme
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   -webkit-text-size-adjust: 100%;
-  --color-dark-blue: #05062e;
+  --color-dark-blue: #09023b;
   --color-teal: #0077b6;
   --color-aqua: #00b4d8;
   --color-light-aqua: #90e0ef;

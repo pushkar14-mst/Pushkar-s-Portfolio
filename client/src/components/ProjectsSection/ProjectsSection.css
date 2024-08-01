@@ -1,11 +1,21 @@
 .project-section {
   display: flex;
   position: relative;
-  height: 100%;
-  justify-content: center;
-  align-items: center;
+  height: 100vh;
+  /* justify-content: center;
+  align-items: center; */
   flex-direction: column;
   z-index: 4;
+  /* background: radial-gradient(
+    66.09% 66.09% at 12.27% 0%,
+    #a07ff9 0%,
+    #09023b 81.32%
+  ); */
+  background: url("../../assets/bg_gradient_1.png");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
 }
 /* .project-section-active{
   height: ;

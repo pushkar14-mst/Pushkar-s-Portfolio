@@ -7,6 +7,11 @@
   height: 100vh;
   z-index: 2;
   overflow: hidden;
+  background: url("../../assets/bg_gradient_1.png");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
 }
 
 #hero-section-container {
@@ -22,11 +27,11 @@
   position: absolute;
   width: 100%;
   height: 100%;
-  background: radial-gradient(50% 50% at 50% 50%, #00b4d8 0%, #05062e 100%);
+  background: radial-gradient(50% 50% at 50% 50%, #a07ff9 0%, #09023b 100%);
 }
 
 .gradient-1 {
-  z-index: 1;
+  z-index: -4;
   left: -25vw;
   top: 70vh;
 }
@@ -39,7 +44,7 @@
 
 .hero-text {
   position: relative;
-  z-index: 2;
+  z-index: 4;
   display: flex;
   flex-direction: column;
   align-items: left;
@@ -72,12 +77,42 @@
   text-fill-color: transparent;
 }
 
+.nav-link {
+  position: relative;
+  color: #0077b6;
+  font-size: 1.2rem;
+  font-weight: 500;
+  margin: 2px 1rem;
+  text-decoration: none;
+  transition: 0.3s;
+  cursor: pointer;
+}
+
+.nav-link::before {
+  content: "";
+  position: absolute;
+  width: 3%;
+  height: 2px;
+  bottom: 0;
+  left: 0;
+  background-color: #0077b6;
+  transition: all 0.3s ease-in-out;
+}
+
+.nav-link:hover::before {
+  width: 6%;
+  background-color: #00b4d8;
+}
+.nav-link:hover {
+  color: #00b4d8;
+}
+
 .macbook-image {
   display: flex;
   position: relative;
   z-index: 0;
   max-width: 50%;
-  right: -10vw;
+  right: -15vw;
 }
 .macbook-image img {
   max-height: 120%;
