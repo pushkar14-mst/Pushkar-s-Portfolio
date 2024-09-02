@@ -1,41 +1,37 @@
-import { useEffect, useState } from "react";
-// import AboutSection from "./components/AboutSection/AboutSection";
 import HeroSection from "./components/HeroSection/HeroSection";
 import ProjectsSection from "./components/ProjectsSection/ProjectsSection";
 import SkillsSection from "./components/SkillsSection/SkillsSection";
-import ExperienceSection from "./components/ExperienceSection/ExperienceSection";
-import ProjectMobileSection from "./components/ProjectsSection/ProjectMobileSection";
-// import HeroMobileSection from "./components/HeroSection/HeroMobileSection";
-import ExperienceMobileSection from "./components/ExperienceSection/ExperienceMobileSection";
 import AboutSection from "./components/AboutSection/AboutSection";
+import "./App.css";
+import { useEffect } from "react";
+import ContactSection from "./components/ContactSection/ContactSection";
 const App = () => {
-  const [windowSize, setWindowSize] = useState([
-    window.innerWidth,
-    window.innerHeight,
-  ]);
-
   useEffect(() => {
-    const handleWindowResize = () => {
-      setWindowSize([window.innerWidth, window.innerHeight]);
+    let circle: any = document.getElementById("home-hero-glow");
+
+    const onMouseMove = (e: any) => {
+      // Calculate the center coordinates of the circle
+      let centerX = e.pageX - circle.offsetWidth / 2;
+      let centerY = e.pageY - circle.offsetHeight / 2;
+
+      circle.style.left = centerX + "px";
+      circle.style.top = centerY + "px";
     };
-    window.addEventListener("resize", handleWindowResize);
+
+    document.addEventListener("mousemove", onMouseMove);
     return () => {
-      window.removeEventListener("resize", handleWindowResize);
+      document.removeEventListener("mousemove", onMouseMove);
     };
-  });
+  }, []);
   return (
     <>
       <>
-        <div className="cursor" />
+        <div className="main-mouse" id="home-hero-glow" />
         <HeroSection />
         <AboutSection />
-        {windowSize[0] > 1258 ? <ProjectsSection /> : <ProjectMobileSection />}
+        <ProjectsSection />
         <SkillsSection />
-        {windowSize[0] > 1258 ? (
-          <ExperienceSection />
-        ) : (
-          <ExperienceMobileSection />
-        )}
+        <ContactSection />
       </>
     </>
   );

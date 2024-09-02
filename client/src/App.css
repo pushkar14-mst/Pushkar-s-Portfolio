@@ -1,0 +1,14 @@
+.main-mouse {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: auto;
+  bottom: auto;
+  z-index: 10;
+  width: 600px;
+  height: 600px;
+  background: #807bea;
+  border-radius: 300px;
+  filter: blur(150px);
+  opacity: 0.5;
+}

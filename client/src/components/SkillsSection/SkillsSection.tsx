@@ -1,66 +1,109 @@
+import { useEffect, useRef } from "react";
 import "./SkillsSection.css";
-const SkillsSection = () => {
-  // const skillsImages: any = [
-  //   {
-  //     img: "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6a/JavaScript-logo.png/768px-JavaScript-logo.png",
-  //     heading: "JavaScript",
-  //     usage: "Web Development",
-  //   },
-  //   {
-  //     img: "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4c/Typescript_logo_2020.svg/1024px-Typescript_logo_2020.svg.png",
-  //     heading: "TypeScript",
-  //     usage: "Web Development",
-  //   },
-  //   {
-  //     img: "https://cdn.freebiesupply.com/logos/large/2x/react-1-logo-png-transparent.png",
-  //     heading: "React",
-  //     usage: "Client Side Programming",
-  //   },
-  //   {
-  //     img: "https://asset.brandfetch.io/idYHMwWF60/idGhyEM0wZ.png",
-  //     heading: "MongoDB",
-  //     usage: "NoSQL Database",
-  //   },
-  //   {
-  //     img: "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d9/Node.js_logo.svg/2560px-Node.js_logo.svg.png",
-  //     heading: "NodeJS",
-  //     usage: "Server Side Programming",
-  //   },
-  //   {
-  //     img: "https://1000logos.net/wp-content/uploads/2020/08/MySQL-Logo.png",
-  //     heading: "MySQL",
-  //     usage: "SQL Database",
-  //   },
-  //   {
-  //     img: "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c3/Python-logo-notext.svg/1869px-Python-logo-notext.svg.png",
-  //     heading: "Python",
-  //     usage: "Server Side Programming, Data Science",
-  //   },
-  //   {
-  //     img: "https://www.bainsight.com/wp-content/uploads/2012/09/google-cloud-logo.png",
-  //     heading: "Machine Learning",
-  //     usage: "Data Science",
-  //   },
-  //   {
-  //     img: "https://global.discourse-cdn.com/auth0/optimized/3X/9/c/9cc1ef8534a9d54c982759ede0f686630974ad79_2_1024x919.png",
-  //     heading: "Django",
-  //     usage: "Server Side Programming",
-  //   },
-  //   {
-  //     img: "https://upload.wikimedia.org/wikipedia/commons/thumb/e/ee/.NET_Core_Logo.svg/1024px-.NET_Core_Logo.svg.png",
-  //     heading: "ASP.NET",
-  //     usage: "Server Side Programming",
-  //   },
-  // ];
+import skills from "./skills";
+const SkillsSection: React.FC = () => {
+  const itemsRef = useRef<HTMLDivElement[]>([]);
+  let progress = 50;
+  let startX = 0;
+  let active = 0;
+  let isDown = false;
+
+  const speedWheel = 0.02;
+  const speedDrag = -0.1;
+
+  const getZindex = (array: HTMLDivElement[], index: number) =>
+    array.map((_, i) =>
+      index === i ? array.length : array.length - Math.abs(index - i)
+    );
+
+  const displayItems = (
+    item: HTMLDivElement,
+    index: number,
+    active: number
+  ) => {
+    const zIndex = getZindex(itemsRef.current, active)[index];
+    item.style.setProperty("--zIndex", `${zIndex}`);
+    item.style.setProperty(
+      "--active",
+      `${(index - active) / itemsRef.current.length}`
+    );
+  };
+
+  const animate = () => {
+    progress = Math.max(0, Math.min(progress, 100));
+    active = Math.floor((progress / 100) * (itemsRef.current.length - 1));
+
+    itemsRef.current.forEach((item, index) =>
+      displayItems(item, index, active)
+    );
+  };
+
+  useEffect(() => {
+    const handleWheel = (e: any) => {
+      const wheelProgress = e.deltaY * speedWheel;
+      progress = progress + wheelProgress;
+      animate();
+    };
+
+    const handleMouseMove = (e: any) => {
+      if (!isDown) return;
+      const x = e.clientX;
+      const mouseProgress = (x - startX) * speedDrag;
+      progress = progress + mouseProgress;
+      startX = x;
+      animate();
+    };
+
+    const handleMouseDown = (e: any) => {
+      isDown = true;
+      startX = e.clientX;
+    };
+
+    const handleMouseUp = () => {
+      isDown = false;
+    };
+
+    document.addEventListener("wheel", handleWheel);
+    document.addEventListener("mousedown", handleMouseDown);
+    document.addEventListener("mousemove", handleMouseMove);
+    document.addEventListener("mouseup", handleMouseUp);
+
+    animate();
+
+    return () => {
+      document.removeEventListener("wheel", handleWheel);
+      document.removeEventListener("mousedown", handleMouseDown);
+      document.removeEventListener("mousemove", handleMouseMove);
+      document.removeEventListener("mouseup", handleMouseUp);
+    };
+  }, []);
+
   return (
-    <>
-      <section className="skills-section">
-        <h1 id="skills-h1">Skills</h1>
-        <div className="skills-section-container">
-          <div className="skills"></div>
+    <section className="skills-section">
+      <div className="skills-section-container">
+        <div className="carousel">
+          <h1 id="skills-h1">Skills</h1>
+          {skills.map((city, index) => (
+            <div
+              key={index}
+              className="carousel-item"
+              ref={(el) => (itemsRef.current[index] = el!)}
+              onClick={() => {
+                progress = (index / itemsRef.current.length) * 100 + 10;
+                animate();
+              }}
+            >
+              <div className="carousel-box">
+                {/* <div className="title">{city}</div>
+                  <div className="num">{`0${index + 1}`}</div> */}
+                <img src={city.image} alt={city.skillName} />
+              </div>
+            </div>
+          ))}
         </div>
-      </section>
-    </>
+      </div>
+    </section>
   );
 };
+
 export default SkillsSection;
