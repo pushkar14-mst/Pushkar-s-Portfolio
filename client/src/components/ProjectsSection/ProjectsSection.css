@@ -1,12 +1,21 @@
 .project-section {
   display: flex;
   position: relative;
-  height: 100%;
-  justify-content: center;
-  align-items: center;
+  height: 100vh;
+  /* justify-content: center;
+  align-items: center; */
   flex-direction: column;
-  background: #010615;
   z-index: 4;
+  /* background: radial-gradient(
+    66.09% 66.09% at 12.27% 0%,
+    #a07ff9 0%,
+    #09023b 81.32%
+  ); */
+  background: url("../../assets/bg_gradient_1.png");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
 }
 /* .project-section-active{
   height: ;
@@ -45,224 +54,4 @@
   padding-left: 20px;
   border-radius: 10px;
   cursor: pointer;
-}
-
-.project-card img {
-  object-fit: cover;
-  width: 440px;
-  height: 260px;
-}
-.project-card-active {
-  transform: scale(1.1);
-  opacity: 1;
-  z-index: 10;
-  transition: opacity 0.3s, transform 0.9s;
-}
-#prev-btn {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  position: absolute;
-  left: 40px;
-  height: 80px;
-  width: 80px;
-  border-radius: 100%;
-  background-color: #212a3e;
-  z-index: 10;
-}
-
-#next-btn {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  position: absolute;
-  right: 40px;
-  height: 80px;
-  width: 80px;
-  border-radius: 100%;
-  background-color: #212a3e;
-  z-index: 10;
-}
-
-/* light-saber */
-.saber {
-  position: absolute;
-  top: 0;
-  left: 0;
-}
-
-.saber-2 {
-  position: absolute;
-  top: 0;
-  right: 0;
-}
-
-#light {
-  background-color: #ddddff;
-  box-shadow: 0px -5px 30px #00b7ff, 0px 0px 30px #00b7ff, 0px 5px 30px #00b7ff;
-  width: 10px;
-  height: 400px;
-  content: "";
-  margin: 0 auto;
-  margin-top: 15px;
-  border-top-left-radius: 10px;
-  border-top-right-radius: 10px;
-}
-
-#cabo {
-  margin: 0 auto;
-  margin-top: -20px;
-  width: 45px;
-  height: 160px;
-  display: block;
-}
-
-#top {
-  display: block;
-  width: 7px;
-  float: right;
-  border-top-left-radius: 15px;
-  background-color: #525252;
-  height: 20px;
-  margin: 0 10px;
-}
-
-#top-mid,
-#mid {
-  float: left;
-  width: 25px;
-  background-color: #525252;
-  height: 36px;
-  box-shadow: 0px 3px #c8c8c8;
-  margin: 0 10px;
-  margin-bottom: 3px;
-  margin-right: 2px;
-}
-
-#mid {
-  margin-right: 2px;
-}
-
-#little-ball {
-  width: 6px;
-  height: 6px;
-  border-radius: 7px;
-  background-color: red;
-  margin: 0 10px;
-  margin: 4px 4px;
-}
-
-#bottom {
-  float: left;
-  width: 25px;
-  height: 70px;
-  background-color: #525252;
-  margin: 0 auto;
-  display: block;
-}
-
-.stripes {
-  display: block;
-  width: 2px;
-  margin: 10px 1px 0 1px;
-  height: 50px;
-  background-color: #c8c8c8;
-}
-
-.stripes:first-child {
-  float: left;
-  margin-left: 7px;
-}
-.stripes:last-child {
-  float: right;
-  margin-right: 7px;
-}
-
-#inner-bottom {
-  width: 15px;
-  height: 50px;
-  background-color: #c8c8c8;
-  margin: 10px auto;
-}
-
-#button {
-  float: right;
-  height: 20px;
-  width: 2px;
-  background-color: #c8c8c8;
-  margin-right: 6px;
-  margin-top: 30px;
-}
-
-.project-explained {
-  padding-top: 20px;
-  display: flex;
-  flex-direction: column;
-  width: 100%;
-  height: 650px;
-  /* justify-content: center; */
-  align-items: center;
-  transition: 0.5s cubic-bezier(0.075, 0.82, 0.165, 1);
-  overflow: scroll;
-  background: rgba(0, 0, 0, 0.3);
-}
-
-.project-preview {
-  display: flex;
-  flex-direction: column;
-  width: auto;
-  border-radius: 10px;
-  z-index: 0;
-}
-.project-preview img {
-  object-fit: cover;
-  z-index: 1;
-  width: 100%;
-  height: 550px;
-}
-.project-description {
-  position: relative;
-  display: flex;
-  flex-direction: column;
-  color: #9ba4b5;
-  background-color: #060c21;
-  font-weight: 700;
-  font-size: 1.3rem;
-  z-index: 2;
-  height: 550px;
-
-  width: inherit;
-  align-items: center;
-  justify-content: center;
-}
-.project-description p {
-  white-space: pre-wrap;
-  text-align: justify;
-}
-.project-description:before {
-  content: "";
-  position: absolute;
-  top: -2px;
-  left: -2px;
-  right: -2px;
-  bottom: -2px;
-  background: #fff;
-  z-index: -1;
-}
-
-.project-description:after {
-  content: "";
-  position: absolute;
-  top: -2px;
-  left: -2px;
-  right: -2px;
-  bottom: -2px;
-  background: #fff;
-  z-index: -2;
-  filter: blur(40px);
-}
-
-.project-description:before,
-.project-description:after {
-  background: linear-gradient(235deg, #2196f3, #010615, #f00000);
 }

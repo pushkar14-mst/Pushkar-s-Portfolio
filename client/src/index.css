@@ -1,22 +1,27 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap");
+
+/* 
+new scheme
+#09023b- dark blue
+#0077b6- teal
+#00b4d8- aqua
+#90e0ef- light aqua
+#caf0f8- lightest aqua
+*/
 :root {
-  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
-  line-height: 1.5;
-  font-weight: 400;
-
-  color-scheme: light dark;
-  color: #9ba4b5;
-  background-color: #212a3e;
-
+  font-family: "Inter", sans-serif;
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   -webkit-text-size-adjust: 100%;
+  --color-dark-blue: #09023b;
+  --color-teal: #0077b6;
+  --color-aqua: #00b4d8;
+  --color-light-aqua: #90e0ef;
+  --color-lightest-aqua: #caf0f8;
 }
-/* 
-#394867->navy
-#F1F6F9->grey
-*/
+
 * {
   margin: 0;
   padding: 0;
@@ -30,9 +35,9 @@ html {
 
 body {
   margin: 0;
-  color: #9ba4b5;
-  background-color: #060c21;
   overflow-x: hidden;
+  background-color: var(--color-dark-blue);
+  color: var(--color-teal);
 }
 
 html {
@@ -69,17 +74,4 @@ button:hover {
 button:focus,
 button:focus-visible {
   outline: 4px auto -webkit-focus-ring-color;
-}
-
-@media (prefers-color-scheme: light) {
-  :root {
-    color: #213547;
-    background-color: #ffffff;
-  }
-  a:hover {
-    color: #747bff;
-  }
-  button {
-    background-color: #f9f9f9;
-  }
 }
