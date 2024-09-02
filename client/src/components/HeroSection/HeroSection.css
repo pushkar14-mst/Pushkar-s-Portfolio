@@ -12,7 +12,7 @@
   background-position: center;
   background-repeat: no-repeat;
   background-attachment: fixed; */
-  cursor: none;
+  /* cursor: none; */
 }
 
 #hero-section-container {
@@ -86,7 +86,7 @@
   margin: 2px 1rem;
   text-decoration: none;
   transition: 0.3s;
-  /* cursor: pointer; */
+  cursor: pointer;
 }
 
 .nav-link::before {
