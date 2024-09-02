@@ -14,8 +14,8 @@ const HeroSection = () => {
           <h1 id="hero-text-2">Patil</h1>
           <span className="nav-link">About</span>
           <span className="nav-link">Projects</span>
-          <span className="nav-link">Experience</span>
           <span className="nav-link">Skills</span>
+          <span className="nav-link">Contact</span>
         </div>
         <div className="macbook-image">
           <img src={macImg} alt="MacBook Pro" />
