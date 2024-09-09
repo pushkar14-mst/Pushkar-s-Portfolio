@@ -43,3 +43,15 @@
   color: #00b4d8;
   text-decoration: underline;
 }
+
+@media screen and (max-width: 768px) {
+  #contact-section {
+    padding: 5rem 2rem;
+  }
+  .contact-section-container {
+    margin-top: 0;
+  }
+  #contact-p {
+    font-size: 1.2rem;
+  }
+}
