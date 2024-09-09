@@ -187,3 +187,34 @@
   width: 35px;
   height: 35px;
 }
+
+@media screen and (max-width: 768px) {
+  .carousel-item {
+    --width: clamp(150px, 50vw, 300px);
+    --height: clamp(200px, 75vw, 400px);
+  }
+  .carousel-item .title {
+    font-size: clamp(20px, 5vw, 30px);
+  }
+  .carousel-item .num {
+    font-size: clamp(20px, 20vw, 80px);
+  }
+  .layout {
+    display: none;
+  }
+  .logo {
+    top: 10px;
+    right: 10px;
+    width: 20px;
+    height: 20px;
+    font-size: 12px;
+  }
+  .social {
+    bottom: 10px;
+    right: 10px;
+  }
+  .social svg {
+    width: 25px;
+    height: 25px;
+  }
+}

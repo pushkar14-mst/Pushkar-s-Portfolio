@@ -119,3 +119,24 @@
   max-height: 120%;
   max-width: 120%;
 }
+
+@media screen and (max-width: 1024px) {
+  #hero-section {
+    height: 100vh;
+  }
+  #hero-section-container {
+    flex-direction: column;
+  }
+  .hero-text {
+    max-width: 100%;
+  }
+  #hero-text-1 {
+    font-size: 5.8rem;
+  }
+  #hero-text-2 {
+    font-size: 5.5rem;
+  }
+  .macbook-image {
+    display: none;
+  }
+}
