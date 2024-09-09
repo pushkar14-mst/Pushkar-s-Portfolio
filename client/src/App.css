@@ -1,4 +1,5 @@
 .main-mouse {
+  overflow-x: hidden;
   position: absolute;
   top: 0;
   left: 0;
@@ -11,4 +12,10 @@
   border-radius: 300px;
   filter: blur(150px);
   opacity: 0.5;
+}
+
+@media screen and (max-width: 768px) {
+  .main-mouse {
+    display: none;
+  }
 }
