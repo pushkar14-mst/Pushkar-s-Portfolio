@@ -163,7 +163,12 @@ const SideBar: React.FC<ISideBarProps> = (props) => {
             ))}
           </ul>
         </div>
-        <button id="github-btn">
+        <button
+          id="github-btn"
+          onClick={() => {
+            window.location.href = props.github;
+          }}
+        >
           Go to Project <OpenInNewIcon />
         </button>
       </div>
