@@ -11,7 +11,7 @@ const AboutSection = () => {
           textAlign: "left",
         }}
       >
-        About Me.
+        About Me. ..
       </h1>
 
       <div className="about-section-container">
