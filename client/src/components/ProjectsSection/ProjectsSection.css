@@ -1,194 +1,363 @@
 .project-section {
+  min-height: 100vh;
+  padding: 8rem 2rem 10rem;
   display: flex;
-  position: relative;
-  height: 100%;
-  /* justify-content: center;
-  align-items: center; */
   flex-direction: column;
-  z-index: 11;
-  overflow: hidden;
-  /* background: url("../../assets/bg_gradient_1.png");
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  background-attachment: fixed; */
-  padding: 5rem 8rem;
-}
-
-.project-section-container {
-  display: flex;
-  width: 100%;
-  height: 100%;
-  flex-direction: column;
-  /* background: rgba(19, 5, 69, 0.4); */
-  /* padding-right: 1rem; */
-  margin-top: 1rem;
-  justify-content: center;
   align-items: center;
 }
-.project-card {
+
+/* Header */
+.projects-header {
+  max-width: 1400px;
+  width: 100%;
+  margin-bottom: 4rem;
+}
+
+.section-label {
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: rgba(5, 219, 238, 0.6);
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  margin-bottom: 1rem;
+}
+
+.projects-header h1 {
+  font-size: 5rem;
+  font-weight: 900;
+  background: linear-gradient(135deg, #4143b0, #05dbee);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Container */
+.project-section-container {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+/* Masonry Cards */
+.masonry-card {
   position: relative;
-
-  height: 470px;
+  border-radius: 12px;
+  overflow: hidden;
   cursor: pointer;
-}
-.project-card:nth-child(even) {
-  height: 250px;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  border: 1px solid rgba(5, 219, 238, 0.1);
+  z-index: 200;
 }
 
-.card-overlay {
+.masonry-card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.4s ease;
+}
+
+.masonry-card:hover {
+  transform: translateY(-5px);
+  border-color: rgba(5, 219, 238, 0.3);
+  box-shadow: 0 20px 40px rgba(5, 219, 238, 0.2);
+}
+
+.masonry-card:hover img {
+  transform: scale(1.05);
+}
+
+/* Card Overlay */
+.masonry-overlay {
   position: absolute;
-  /* top: 0;
-  left: 0; */
   bottom: 0;
+  left: 0;
+  right: 0;
   width: 100%;
   height: 100%;
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
-  /* align-items: center; */
+  padding: 2rem;
   opacity: 0;
-  transition: opacity 0.5s;
-  padding: 1rem;
-  z-index: 8;
+  transition: opacity 0.4s ease;
+  z-index: 2;
 }
 
-.card-overlay h2 {
-  position: relative;
-  z-index: 8;
-  color: #00b4d8;
-  font-size: 2rem;
-  font-weight: 900;
-  text-align: left;
-}
-
-.card-overlay::after {
+.masonry-overlay::after {
   content: "";
-  pointer-events: none;
   position: absolute;
-  z-index: 1;
-  inset: 0px;
-  opacity: 1;
+  inset: 0;
   background: linear-gradient(
     180deg,
     rgba(9, 2, 59, 0) 0%,
-    rgba(7, 2, 48, 0.814) 100%
+    rgba(7, 2, 48, 0.95) 100%
   );
+  z-index: -1;
 }
 
-.project-card:hover .card-overlay,
-.project-card:focus .card-overlay {
+.masonry-overlay h2 {
+  color: #05dbee;
+  font-size: 1.8rem;
+  font-weight: 900;
+  text-align: left;
+  z-index: 2;
+}
+
+.masonry-card:hover .masonry-overlay {
   opacity: 1;
 }
 
+/* Modal Sidebar */
 .sidebar-container {
-  display: flex;
-  /* position: relative; */
-  flex-direction: column;
-  /* justify-content: center;
-  align-items: center; */
   width: 100%;
   height: 100%;
-  box-shadow: 0 8px 32px 0 rgb(20, 27, 123);
-  border: 0 0 0 1 solid rgba(255, 255, 255, 0.18);
-  transition: all cubic-bezier(0.075, 0.82, 0.165, 1);
+  display: flex;
+  justify-content: flex-end;
+  pointer-events: none;
 }
 
 .main-sidebar {
-  position: absolute;
-  z-index: 5;
-  top: 0;
-  right: 0;
+  position: relative;
+  width: 45%;
+  max-width: 600px;
+  height: 100vh;
+  background: #09023b;
   display: flex;
   flex-direction: column;
-  /* justify-content: center;
-  align-items: center; */
-  width: 40%;
-  height: 100%;
-  padding: 1rem 1rem;
-  background-color: #09023b;
-  transition: width 2.5s ease-in-out;
+  pointer-events: all;
+  box-shadow: -10px 0 40px rgba(0, 0, 0, 0.5);
+  animation: slideIn 0.4s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
+@keyframes slideIn {
+  from {
+    transform: translateX(100%);
+  }
+  to {
+    transform: translateX(0);
+  }
+}
+
+/* Sidebar Nav */
 .project-sidebar-nav {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  width: 100%;
-  border-bottom: 0.2px solid var(--color-light-aqua);
-  padding: 0.6rem 0;
+  padding: 1.5rem 2rem;
+  border-bottom: 1px solid rgba(5, 219, 238, 0.2);
 }
 
-.sidebar-content {
+.nav-left {
   display: flex;
-  flex-direction: column;
-  justify-content: center;
-  /* align-items: center; */
-  width: 100%;
-  max-height: 90%;
-  padding: 2rem 0;
-  color: #00b4d8;
-  overflow-y: scroll;
+  align-items: center;
+  gap: 0.8rem;
 }
+
+.nav-left svg {
+  color: #05dbee;
+  font-size: 1.5rem;
+}
+
+.nav-left button {
+  background: transparent;
+  border: none;
+  color: #05dbee;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: opacity 0.2s;
+}
+
+.nav-left button:hover {
+  opacity: 0.7;
+}
+
+.close-btn {
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: transparent;
+  border: 1px solid rgba(5, 219, 238, 0.3);
+  border-radius: 8px;
+  color: #05dbee;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.close-btn:hover {
+  background: rgba(5, 219, 238, 0.1);
+  border-color: #05dbee;
+}
+
+/* Sidebar Content */
+.sidebar-content {
+  flex: 1;
+  padding: 2rem;
+  overflow-y: auto;
+  color: #05dbee;
+}
+
+.sidebar-content::-webkit-scrollbar {
+  width: 8px;
+}
+
+.sidebar-content::-webkit-scrollbar-track {
+  background: rgba(5, 219, 238, 0.05);
+}
+
+.sidebar-content::-webkit-scrollbar-thumb {
+  background: rgba(5, 219, 238, 0.3);
+  border-radius: 4px;
+}
+
+.sidebar-content::-webkit-scrollbar-thumb:hover {
+  background: rgba(5, 219, 238, 0.5);
+}
+
 .sidebar-content h2 {
-  font-size: 1.7rem;
+  font-size: 2rem;
   font-weight: 900;
+  margin-bottom: 1rem;
+  color: #05dbee;
+}
+
+.short-desc {
+  font-size: 1.05rem;
+  color: rgba(5, 219, 238, 0.8);
+  line-height: 1.6;
+  margin-bottom: 2rem;
+}
+
+.sidebar-content h4 {
+  font-size: 1rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: #05dbee;
+  margin: 2rem 0 1rem;
+}
+
+.sidebar-content p {
+  color: rgba(5, 219, 238, 0.85);
+  line-height: 1.7;
+  font-size: 0.95rem;
 }
 
 .project-cover-img {
-  display: flex;
-  max-width: 100%;
+  width: 100%;
   max-height: 350px;
-  margin-bottom: 0.7rem;
+  border-radius: 8px;
+  overflow: hidden;
+  margin: 1.5rem 0;
 }
+
 .project-cover-img img {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  border-radius: 8px;
 }
 
-#sidebar-technologies {
+/* Technologies */
+.sidebar-technologies {
   display: flex;
   flex-wrap: wrap;
-  justify-content: left;
-  list-style-type: none;
-  gap: 0.5rem;
+  gap: 0.6rem;
+  list-style: none;
+  padding: 0;
 }
-#sidebar-technologies li {
-  padding: 0.3rem 0.8rem;
-  color: var(--color-light-aqua);
-  background-color: var(--color-teal);
-  border-radius: 5px;
-  font-size: 0.7rem;
-  font-weight: 700;
+
+.sidebar-technologies li {
+  padding: 0.5rem 1rem;
+  background: rgba(5, 219, 238, 0.1);
+  border: 1px solid rgba(5, 219, 238, 0.3);
+  border-radius: 6px;
+  color: #05dbee;
+  font-size: 0.85rem;
+  font-weight: 600;
 }
-#github-btn {
-  position: absolute;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+
+/* GitHub Button */
+.github-btn {
   width: 100%;
-  height: 7%;
-  padding: 0.5rem 0;
-  background-color: #00b4d8;
+  padding: 1.2rem;
+  background: #05dbee;
   color: #09023b;
+  border: none;
   font-size: 1rem;
   font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
   cursor: pointer;
-  transition: background-color 0.25s;
-  bottom: 0;
-  left: 0;
-  border-radius: 0;
+  transition: all 0.3s;
 }
-@media screen and (max-width: 768px) {
-  .project-section {
-    padding: 5rem 2rem;
+
+.github-btn:hover {
+  background: #04c4d0;
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(5, 219, 238, 0.3);
+}
+
+.github-btn svg {
+  font-size: 1.2rem;
+}
+
+/* Responsive */
+@media screen and (max-width: 1024px) {
+  .main-sidebar {
+    width: 60%;
   }
 }
 
 @media screen and (max-width: 768px) {
+  .project-section {
+    padding: 5rem 1.5rem 6rem;
+  }
+
+  .projects-header h1 {
+    font-size: 3rem;
+  }
+
   .main-sidebar {
     width: 100%;
+    max-width: 100%;
+  }
+
+  .project-sidebar-nav {
+    padding: 1rem 1.5rem;
+  }
+
+  .sidebar-content {
+    padding: 1.5rem;
+  }
+
+  .sidebar-content h2 {
+    font-size: 1.6rem;
+  }
+
+  .masonry-overlay h2 {
+    font-size: 1.4rem;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .project-section {
+    padding: 4rem 1rem 5rem;
+  }
+
+  .projects-header h1 {
+    font-size: 2.5rem;
+  }
+
+  .masonry-overlay {
+    padding: 1.5rem;
+  }
+
+  .sidebar-content h2 {
+    font-size: 1.4rem;
   }
 }
