@@ -2,7 +2,7 @@ import { useState } from "react";
 import "./AboutSection.css";
 
 const AboutSection = () => {
-  const [hoveredSkill, setHoveredSkill] = useState(null);
+  const [hoveredSkill, setHoveredSkill] = useState<string | null>(null);
 
   const skills = {
     Frontend: [

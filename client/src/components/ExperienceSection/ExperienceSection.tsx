@@ -2,7 +2,7 @@ import { useState } from "react";
 import "./ExperienceSection.css";
 
 const ExperienceSection = () => {
-  const [hoveredId, setHoveredId] = useState(null);
+  const [hoveredId, setHoveredId] = useState<number | null>(null);
 
   const experiences = [
     {
