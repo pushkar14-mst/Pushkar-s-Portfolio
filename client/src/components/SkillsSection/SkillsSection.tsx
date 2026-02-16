@@ -1,105 +1,157 @@
-import { useEffect, useRef } from "react";
+import { useState } from "react";
 import "./SkillsSection.css";
-import skills from "./skills";
-const SkillsSection: React.FC = () => {
-  const itemsRef = useRef<HTMLDivElement[]>([]);
-  let progress = 50;
-  let startX = 0;
-  let active = 0;
-  let isDown = false;
+import {
+  SiReact,
+  SiTypescript,
+  SiNextdotjs,
+  SiNodedotjs,
+  SiTailwindcss,
+  SiRedux,
+  SiPrisma,
+  SiMongodb,
+  SiPostgresql,
+  SiDocker,
+  SiPython,
+  SiTensorflow,
+  SiGooglecloud,
+  SiGit,
+  SiWebgl,
+  SiExpress,
+  SiSupabase,
+  SiRedis,
+  SiFirebase,
+} from "react-icons/si";
+import { DiJavascript1 } from "react-icons/di";
+import { TbBrandReactNative, TbBrandThreejs } from "react-icons/tb";
 
-  const speedWheel = 0.02;
-  const speedDrag = -0.1;
+interface Skill {
+  name: string;
+  icon: any;
+  category: string;
+  level: number;
+}
 
-  const getZindex = (array: HTMLDivElement[], index: number) =>
-    array.map((_, i) =>
-      index === i ? array.length : array.length - Math.abs(index - i)
-    );
+const SkillsSection = () => {
+  const [activeCategory, setActiveCategory] = useState<string>("all");
 
-  const displayItems = (
-    item: HTMLDivElement,
-    index: number,
-    active: number
-  ) => {
-    const zIndex = getZindex(itemsRef.current, active)[index];
-    item.style.setProperty("--zIndex", `${zIndex}`);
-    item.style.setProperty(
-      "--active",
-      `${(index - active) / itemsRef.current.length}`
-    );
-  };
+  const skills: Skill[] = [
+    // Frontend
+    { name: "React", icon: SiReact, category: "frontend", level: 95 },
+    { name: "TypeScript", icon: SiTypescript, category: "frontend", level: 90 },
+    { name: "Next.js", icon: SiNextdotjs, category: "frontend", level: 90 },
+    {
+      name: "JavaScript",
+      icon: DiJavascript1,
+      category: "frontend",
+      level: 95,
+    },
+    {
+      name: "React Native",
+      icon: TbBrandReactNative,
+      category: "frontend",
+      level: 85,
+    },
+    {
+      name: "Tailwind CSS",
+      icon: SiTailwindcss,
+      category: "frontend",
+      level: 90,
+    },
+    { name: "Redux", icon: SiRedux, category: "frontend", level: 85 },
+    { name: "Three.js", icon: TbBrandThreejs, category: "frontend", level: 80 },
+    { name: "WebGL", icon: SiWebgl, category: "frontend", level: 75 },
 
-  const animate = () => {
-    progress = Math.max(0, Math.min(progress, 100));
-    active = Math.floor((progress / 100) * (itemsRef.current.length - 1));
+    // Backend
+    { name: "Node.js", icon: SiNodedotjs, category: "backend", level: 85 },
+    { name: "Express", icon: SiExpress, category: "backend", level: 85 },
+    { name: "Python", icon: SiPython, category: "backend", level: 80 },
+    { name: "Prisma", icon: SiPrisma, category: "backend", level: 85 },
 
-    itemsRef.current.forEach((item, index) =>
-      displayItems(item, index, active)
-    );
-  };
+    // Database
+    { name: "MongoDB", icon: SiMongodb, category: "database", level: 85 },
+    { name: "PostgreSQL", icon: SiPostgresql, category: "database", level: 80 },
+    { name: "Redis", icon: SiRedis, category: "database", level: 75 },
+    { name: "Supabase", icon: SiSupabase, category: "database", level: 80 },
+    { name: "Firebase", icon: SiFirebase, category: "database", level: 75 },
 
-  useEffect(() => {
-    const handleWheel = (e: any) => {
-      const wheelProgress = e.deltaY * speedWheel;
-      progress = progress + wheelProgress;
-      animate();
-    };
+    // DevOps & Tools
+    { name: "Docker", icon: SiDocker, category: "devops", level: 75 },
+    { name: "GCP", icon: SiGooglecloud, category: "devops", level: 75 },
+    { name: "Git", icon: SiGit, category: "devops", level: 90 },
 
-    const handleMouseMove = (e: any) => {
-      if (!isDown) return;
-      const x = e.clientX;
-      const mouseProgress = (x - startX) * speedDrag;
-      progress = progress + mouseProgress;
-      startX = x;
-      animate();
-    };
+    // AI/ML
+    { name: "TensorFlow", icon: SiTensorflow, category: "ai", level: 75 },
+  ];
 
-    const handleMouseDown = (e: any) => {
-      isDown = true;
-      startX = e.clientX;
-    };
+  const categories = [
+    { id: "all", label: "All Skills" },
+    { id: "frontend", label: "Frontend" },
+    { id: "backend", label: "Backend" },
+    { id: "database", label: "Database" },
+    { id: "devops", label: "DevOps" },
+    { id: "ai", label: "AI/ML" },
+  ];
 
-    const handleMouseUp = () => {
-      isDown = false;
-    };
-
-    document.addEventListener("wheel", handleWheel);
-    document.addEventListener("mousedown", handleMouseDown);
-    document.addEventListener("mousemove", handleMouseMove);
-    document.addEventListener("mouseup", handleMouseUp);
-
-    animate();
-
-    return () => {
-      document.removeEventListener("wheel", handleWheel);
-      document.removeEventListener("mousedown", handleMouseDown);
-      document.removeEventListener("mousemove", handleMouseMove);
-      document.removeEventListener("mouseup", handleMouseUp);
-    };
-  }, []);
+  const filteredSkills =
+    activeCategory === "all"
+      ? skills
+      : skills.filter((skill) => skill.category === activeCategory);
 
   return (
     <section className="skills-section">
-      <div className="skills-section-container">
-        <div className="carousel">
-          <h1 id="skills-h1">Skills</h1>
-          {skills.map((city, index) => (
-            <div
-              key={index}
-              className="carousel-item"
-              ref={(el) => (itemsRef.current[index] = el!)}
-              onClick={() => {
-                progress = (index / itemsRef.current.length) * 100 + 10;
-                animate();
-              }}
-            >
-              <div className="carousel-box">
-                {/* <div className="title">{city}</div>
-                  <div className="num">{`0${index + 1}`}</div> */}
-                <img src={city.image} alt={city.skillName} />
-              </div>
+      <div className="skills-header">
+        <div className="section-label">Technical Expertise</div>
+        <h1>Skills</h1>
+        <p className="skills-intro">
+          Technologies and tools I use to build exceptional digital experiences
+        </p>
+      </div>
+
+      <div className="category-filters">
+        {categories.map((cat) => (
+          <button
+            key={cat.id}
+            className={`filter-btn ${activeCategory === cat.id ? "active" : ""}`}
+            onClick={() => setActiveCategory(cat.id)}
+          >
+            {cat.label}
+          </button>
+        ))}
+      </div>
+
+      <div className="skills-grid">
+        {filteredSkills.map((skill, index) => (
+          <div
+            key={skill.name}
+            className="skill-card"
+            style={{ animationDelay: `${index * 0.05}s` }}
+          >
+            <div className="skill-icon-wrapper">
+              <skill.icon className="skill-icon" />
             </div>
-          ))}
+            <h3>{skill.name}</h3>
+            <div className="skill-bar">
+              <div
+                className="skill-progress"
+                style={{ width: `${skill.level}%` }}
+              />
+            </div>
+          </div>
+        ))}
+      </div>
+
+      <div className="skills-stats">
+        <div className="stat-item">
+          <div className="stat-number">{skills.length}+</div>
+          <div className="stat-label">Technologies</div>
+        </div>
+        <div className="stat-item">
+          <div className="stat-number">3+</div>
+          <div className="stat-label">Years Experience</div>
+        </div>
+        <div className="stat-item">
+          <div className="stat-number">10+</div>
+          <div className="stat-label">Projects Built</div>
         </div>
       </div>
     </section>

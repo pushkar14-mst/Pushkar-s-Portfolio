@@ -3,9 +3,11 @@ import Box from "@mui/material/Box";
 import Masonry from "@mui/lab/Masonry";
 import itemData from "./projects";
 import { useState } from "react";
-import { Modal } from "@mui/material";
+import { Modal, Fade, Backdrop } from "@mui/material";
 import KeyboardBackspaceIcon from "@mui/icons-material/KeyboardBackspace";
 import OpenInNewIcon from "@mui/icons-material/OpenInNew";
+import CloseIcon from "@mui/icons-material/Close";
+
 interface ISideBarProps {
   title: string;
   shortDescription: string;
@@ -15,75 +17,74 @@ interface ISideBarProps {
   github: string;
   setIsOpen: (isOpen: boolean) => void;
 }
+
 const ProjectsSection = () => {
   const [sideBarOpen, setSideBarOpen] = useState(false);
   const [project, setProject] = useState<any>();
+
   const sideBarHandler = (isOpen: boolean) => {
     setSideBarOpen(isOpen);
   };
+
   return (
-    <>
-      <section className="project-section">
-        <h1 style={{ textAlign: "left" }}>Projects</h1>
-        <div className="project-section-container">
-          <Box
+    <section className="project-section">
+      <div className="projects-header">
+        <div className="section-label">Work</div>
+        <h1>All Projects</h1>
+      </div>
+
+      <div className="project-section-container">
+        <Box
+          sx={{
+            display: "flex",
+            justifyContent: "center",
+            alignItems: "center",
+            width: "100%",
+            maxWidth: "1400px",
+          }}
+        >
+          <Masonry
+            columns={window.innerWidth > 768 ? 2 : 1}
+            spacing={3}
             sx={{
-              display: "flex",
-              justifyContent: "center",
-              alignItems: "center",
-              gap: "1rem",
-              padding: "1rem",
-              flexWrap: "wrap",
-              maxWidth: "100%",
+              width: "100%",
             }}
           >
-            <Masonry
-              columns={window.innerWidth > 768 ? 2 : 1}
-              spacing={2}
-              sx={{
-                minHeight: "100vh",
-              }}
-            >
-              {itemData.map((item, index) => (
-                <div
-                  key={index}
-                  style={{
-                    maxWidth: "500px",
-                  }}
-                  className="project-card"
-                >
-                  <div
-                    className="card-overlay"
-                    onClick={() => {
-                      setSideBarOpen(true);
-                      setProject(item);
-                    }}
-                  >
-                    <h2>{item.title}</h2>
-                  </div>
-
-                  <img
-                    srcSet={`${item.coverImg}?w=162&auto=format&dpr=2 2x`}
-                    src={`${item.coverImg}?w=162&auto=format`}
-                    alt={item.title}
-                    loading="lazy"
-                    style={{
-                      borderRadius: "10px",
-                      display: "block",
-                      width: "100%",
-                      height: "100%",
-                      objectFit: "cover",
-                    }}
-                  />
+            {itemData.map((item, index) => (
+              <div
+                key={index}
+                className="masonry-card"
+                onClick={() => {
+                  setSideBarOpen(true);
+                  setProject(item);
+                }}
+              >
+                <div className="masonry-overlay">
+                  <h2>{item.title}</h2>
                 </div>
-              ))}
-            </Masonry>
-            <Modal
-              open={sideBarOpen}
-              onClose={() => sideBarHandler(false)}
-              aria-labelledby="modal-modal-title"
-              aria-describedby="modal-modal-description"
-            >
+                <img src={item.coverImg} alt={item.title} loading="lazy" />
+              </div>
+            ))}
+          </Masonry>
+        </Box>
+
+        <Modal
+          open={sideBarOpen}
+          onClose={() => sideBarHandler(false)}
+          closeAfterTransition
+          slots={{ backdrop: Backdrop }}
+          slotProps={{
+            backdrop: {
+              timeout: 500,
+              sx: {
+                backgroundColor: "rgba(0, 0, 0, 0.85)",
+                backdropFilter: "blur(8px)",
+              },
+            },
+          }}
+        >
+          <Fade in={sideBarOpen} timeout={400}>
+            <div>
               <SideBar
                 title={project?.title}
                 shortDescription={project?.shortDescription}
@@ -93,11 +94,11 @@ const ProjectsSection = () => {
                 github={project?.github}
                 setIsOpen={sideBarHandler}
               />
-            </Modal>
-          </Box>
-        </div>
-      </section>
-    </>
+            </div>
+          </Fade>
+        </Modal>
+      </div>
+    </section>
   );
 };
 
@@ -106,68 +107,39 @@ const SideBar: React.FC<ISideBarProps> = (props) => {
     <div className="sidebar-container">
       <div className="main-sidebar">
         <div className="project-sidebar-nav">
-          <KeyboardBackspaceIcon
-            style={{
-              color: "#00b4d8",
-              cursor: "pointer",
-              fontSize: "2rem",
-            }}
-            onClick={() => {
-              props.setIsOpen(false);
-            }}
-          />
-          <button
-            onClick={() => {
-              props.setIsOpen(false);
-            }}
-            style={{
-              color: "#00b4d8",
-              backgroundColor: "transparent",
-              border: "0",
-              fontWeight: "bold",
-            }}
-          >
-            Back to Projects.
+          <div className="nav-left">
+            <KeyboardBackspaceIcon />
+            <button onClick={() => props.setIsOpen(false)}>
+              Back to Projects
+            </button>
+          </div>
+          <button className="close-btn" onClick={() => props.setIsOpen(false)}>
+            <CloseIcon />
           </button>
         </div>
+
         <div className="sidebar-content">
           <h2>{props.title}</h2>
-          <p
-            style={{
-              margin: "0.7rem 0",
-            }}
-          >
-            {props.shortDescription}
-          </p>
+          <p className="short-desc">{props.shortDescription}</p>
+
           <div className="project-cover-img">
-            <img src={props.coverImg} alt="" />
+            <img src={props.coverImg} alt={props.title} />
           </div>
-          <h4
-            style={{
-              margin: "0.7rem 0",
-            }}
-          >
-            About
-          </h4>
+
+          <h4>About</h4>
           <p>{props.description}</p>
-          <h4
-            style={{
-              margin: "0.7rem 0",
-            }}
-          >
-            Technologies
-          </h4>
-          <ul id="sidebar-technologies">
+
+          <h4>Technologies</h4>
+          <ul className="sidebar-technologies">
             {props.technologies.map((tech, index) => (
               <li key={index}>{tech}</li>
             ))}
           </ul>
         </div>
+
         <button
-          id="github-btn"
-          onClick={() => {
-            window.location.href = props.github;
-          }}
+          className="github-btn"
+          onClick={() => window.open(props.github, "_blank")}
         >
           Go to Project <OpenInNewIcon />
         </button>

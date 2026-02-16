@@ -5,6 +5,8 @@ import AboutSection from "./components/AboutSection/AboutSection";
 import "./App.css";
 import { useEffect } from "react";
 import ContactSection from "./components/ContactSection/ContactSection";
+import ExperienceSection from "./components/ExperienceSection/ExperienceSection";
+import ProjectsPreviewSection from "./components/ProjectsPreviewSection/ProjectsPreviewSection";
 const App = () => {
   useEffect(() => {
     let circle: any = document.getElementById("home-hero-glow");
@@ -29,6 +31,8 @@ const App = () => {
         <div className="main-mouse" id="home-hero-glow" />
         <HeroSection />
         <AboutSection />
+        <ExperienceSection />
+        <ProjectsPreviewSection />
         <ProjectsSection />
         <SkillsSection />
         <ContactSection />

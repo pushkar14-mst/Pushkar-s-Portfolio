@@ -1,154 +1,177 @@
-import { useRef } from "react";
+import { useState } from "react";
 import "./AboutSection.css";
 
 const AboutSection = () => {
-  const sectionRef = useRef(null);
+  const [hoveredSkill, setHoveredSkill] = useState(null);
+
+  const skills = {
+    Frontend: [
+      "React",
+      "TypeScript",
+      "Next.js",
+      "Tailwind CSS",
+      "WebGL",
+      "Three.js",
+    ],
+    Backend: ["Node.js", "Prisma", "Supabase", "Redis", "WebAssembly"],
+    Tools: ["Git", "Docker", "AWS", "Vercel", "Figma"],
+  };
+
+  const currentYear = new Date().getFullYear();
 
   return (
-    <section id="about-section" ref={sectionRef}>
-      <h1
-        style={{
-          textAlign: "left",
-        }}
-      >
-        About Me.
-      </h1>
-
-      <div className="about-section-container">
-        <div className="name">
-          <h2>Pushkar Patil</h2>
-          <h3>Software Developer</h3>
+    <section id="about-section">
+      <div className="about-hero">
+        <div className="hero-content">
+          <h1 className="hero-title">
+            <span className="title-line">Building</span>
+            <span className="title-line gradient-text">Beautiful</span>
+            <span className="title-line">Experiences</span>
+          </h1>
+          <p className="hero-description">
+            I'm Pushkar Patil, a software engineer who bridges design and
+            development. Currently pursuing my Master's in Computer Science
+            while building production-ready applications that users love.
+          </p>
         </div>
-        <ul className="about-list">
-          <li>
-            <a>My Journey</a>
-            <p>
-              Back in 2021, I started building websites and mobile apps, and
-              soon found myself captivated by the endless possibilities of
-              coding and software development. Fast-forward to today, I've had
-              the opportunity to work on everything from AI-driven models and
-              real-time chat apps to dynamic music platforms. My passion lies in
-              the intersection of technology and creativity—crafting seamless
-              user experiences that not only work flawlessly but also engage
-              users on a deeper level. These days, I’m pursuing my Master’s in
-              Computer Science at Indiana University, pushing the boundaries of
-              what I can create with the latest in tech. When I’m not diving
-              deep into code, you’ll find me exploring new places, fueling my
-              aviation passion, or immersing myself in music—the perfect
-              backdrop to a day of coding. And yes, I’m a huge sports enthusiast
-              too, always on the lookout for the next big game. Whether it’s in
-              the world of tech or beyond, I’m driven by a relentless curiosity
-              and a love for what I do.
-            </p>
-          </li>
-          <li>
-            <a>Education</a>
-            <p>
-              <span
-                style={{
-                  fontSize: "1.2rem",
-                }}
-              >
-                Master of Science in Computer Science, Indiana University
-              </span>
-              <br />
-              <span style={{ fontSize: "1rem" }}>August 2023 - Present</span>
-              <br />
-              <span style={{ fontSize: "1rem" }}>
-                {" "}
-                Relevant coursework & skills:
-                <ul id="relevant-coursework">
-                  {[
-                    "Software Engineering",
-                    "Analysis Of Algorithms",
-                    "Computer Networks",
-                    "Pervasive Computing",
-                    "Agile Software Development",
-                    "React Native",
-                    "Web Application Security",
-                    "CI/CD",
-                  ].map((tech, index) => (
-                    <div id="relevant-coursework-li" key={index}>
-                      {tech}
-                    </div>
+      </div>
+
+      <div className="about-content">
+        {/* Journey Section */}
+        <div className="content-block journey-block">
+          <div className="block-label">01 / Journey</div>
+          <h2>From Code to Impact</h2>
+          <div className="journey-grid">
+            <div className="journey-text">
+              <p>
+                Started coding in 2021, building websites and mobile apps.
+                Fast-forward to today, I've worked on AI-driven platforms at
+                StudyFetch (in partnership with NVIDIA), real-time collaboration
+                tools, and scalable web applications.
+              </p>
+              <p>
+                My passion lies in creating seamless user experiences that blend
+                performance with beautiful design. I believe great software
+                should feel invisible — it just works.
+              </p>
+              <p>
+                When I'm not coding, you'll find me exploring aviation, diving
+                into music, or following the latest in sports and automotive
+                tech (yes, I'm a Porsche enthusiast 🏎️).
+              </p>
+            </div>
+            <div className="journey-stats">
+              <div className="stat-item">
+                <div className="stat-number">3+</div>
+                <div className="stat-label">Years Building</div>
+              </div>
+              <div className="stat-item">
+                <div className="stat-number">10+</div>
+                <div className="stat-label">Projects Shipped</div>
+              </div>
+              <div className="stat-item">
+                <div className="stat-number">90%</div>
+                <div className="stat-label">Model Accuracy</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* Skills Section */}
+        <div className="content-block skills-block">
+          <div className="block-label">02 / Skills</div>
+          <h2>Tech Stack</h2>
+          <div className="skills-grid">
+            {Object.entries(skills).map(([category, items]) => (
+              <div key={category} className="skill-category">
+                <h3>{category}</h3>
+                <div className="skill-tags">
+                  {items.map((skill) => (
+                    <span
+                      key={skill}
+                      className={`skill-tag ${hoveredSkill === skill ? "active" : ""}`}
+                      onMouseEnter={() => setHoveredSkill(skill)}
+                      onMouseLeave={() => setHoveredSkill(null)}
+                    >
+                      {skill}
+                    </span>
                   ))}
-                </ul>
-              </span>
-            </p>
-            <br />
-            <p>
-              <span
-                style={{
-                  fontSize: "1.2rem",
-                }}
-              >
-                Bachelor of Engineering in Computer Engineering, University Of
-                Mumbai
-              </span>
-              <br />
-              <span style={{ fontSize: "1rem" }}>August 2019 - July 2023</span>
-              <br />
-              <span style={{ fontSize: "1rem" }}>
-                {" "}
-                Relevant coursework & skills:
-                <ul id="relevant-coursework">
-                  {[
-                    "Data Structures",
-                    "Algorithms",
-                    "Database Management Systems",
-                    "Operating Systems",
-                    "Computer Security",
-                    "Internet Of Things",
-                    "Internet Programming",
-                    "Machine Learning",
-                    "Artificial Intelligence",
-                    "Python",
-                  ].map((tech, index) => (
-                    <div id="relevant-coursework-li" key={index}>
-                      {tech}
-                    </div>
-                  ))}
-                </ul>
-              </span>
-            </p>
-          </li>
-          <li>
-            <a>Experience</a>
-            <p>
-              <span
-                style={{
-                  fontSize: "1.2rem",
-                }}
-              >
-                AI Intern at Reva Technologies
-              </span>
-              <br />
-              <span
-                style={{
-                  fontSize: "1rem",
-                }}
-              >
-                March 2022 - August 2023
-              </span>
-              <br />
-              My role as an AI Intern was centered on leading AI model
-              development for cross-project defect predictions. I built an
-              Abstract Syntax Tree-based code evaluation algorithm, essential
-              for dataset formation. A pivotal part of my responsibilities
-              involved meticulously gathering, extracting, and processing code
-              from diverse GitHub issues to curate the dataset. I engineered a
-              robust pipeline that seamlessly integrated the code evaluation
-              algorithm with the defect prediction model. A highlight of my
-              achievements was the implementation of a CNN-based Genetic
-              Algorithm, boosting the model accuracy by an impressive 10%,
-              culminating in an overall accuracy milestone of 90%. Additionally,
-              I led and mentored a team of 6 interns, overseeing their progress
-              through regular meetings, while also providing comprehensive
-              guidance and hands-on training to ensure successful implementation
-              of project sub-modules.
-            </p>
-          </li>
-        </ul>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        {/* Education Section */}
+        <div className="content-block education-block">
+          <div className="block-label">03 / Education</div>
+          <h2>Academic Background</h2>
+
+          <div className="education-grid">
+            <div className="education-card">
+              <div className="edu-header">
+                <div className="edu-icon">🎓</div>
+                <span className="edu-year">2023 - {currentYear}</span>
+              </div>
+              <h3>Master of Science</h3>
+              <h4>Computer Science</h4>
+              <p className="edu-school">Indiana University</p>
+              <div className="edu-courses">
+                <span>Software Engineering</span>
+                <span>Algorithms</span>
+                <span>Computer Networks</span>
+                <span>Agile Development</span>
+                <span>Web Security</span>
+              </div>
+            </div>
+
+            <div className="education-card">
+              <div className="edu-header">
+                <div className="edu-icon">🎓</div>
+                <span className="edu-year">2019 - 2023</span>
+              </div>
+              <h3>Bachelor of Engineering</h3>
+              <h4>Computer Engineering</h4>
+              <p className="edu-school">University Of Mumbai</p>
+              <div className="edu-courses">
+                <span>Data Structures</span>
+                <span>AI/ML</span>
+                <span>Database Systems</span>
+                <span>Operating Systems</span>
+                <span>IoT</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* Currently Section */}
+        <div className="content-block currently-block">
+          <div className="block-label">04 / Currently</div>
+          <h2>What I'm Up To</h2>
+          <div className="currently-grid">
+            <div className="current-item">
+              <span className="current-emoji">💼</span>
+              <div>
+                <h4>Looking for opportunities</h4>
+                <p>Frontend/SDE II roles at innovative companies</p>
+              </div>
+            </div>
+            <div className="current-item">
+              <span className="current-emoji">🚀</span>
+              <div>
+                <h4>Building portfolio projects</h4>
+                <p>Collaborative code editor, smart bookmarks, and more</p>
+              </div>
+            </div>
+            <div className="current-item">
+              <span className="current-emoji">📍</span>
+              <div>
+                <h4>Based in Santa Monica, CA</h4>
+                <p>Open to remote and hybrid opportunities</p>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </section>
   );
