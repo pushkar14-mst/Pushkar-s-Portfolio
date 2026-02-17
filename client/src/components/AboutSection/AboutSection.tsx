@@ -17,8 +17,6 @@ const AboutSection = () => {
     Tools: ["Git", "Docker", "AWS", "Vercel", "Figma"],
   };
 
-  const currentYear = new Date().getFullYear();
-
   return (
     <section id="about-section">
       <div className="about-hero">
@@ -111,7 +109,7 @@ const AboutSection = () => {
             <div className="education-card">
               <div className="edu-header">
                 <div className="edu-icon">🎓</div>
-                <span className="edu-year">2023 - {currentYear}</span>
+                <span className="edu-year">2023 - 2025</span>
               </div>
               <h3>Master of Science</h3>
               <h4>Computer Science</h4>
@@ -153,7 +151,7 @@ const AboutSection = () => {
               <span className="current-emoji">💼</span>
               <div>
                 <h4>Looking for opportunities</h4>
-                <p>Frontend/SDE II roles at innovative companies</p>
+                <p>Frontend/Full-Stack roles at innovative companies</p>
               </div>
             </div>
             <div className="current-item">
