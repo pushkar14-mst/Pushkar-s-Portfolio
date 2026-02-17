@@ -134,19 +134,6 @@ const ExperienceSection = () => {
           </div>
         ))}
       </div>
-
-      <div className="experience-cta">
-        <p>Want to know more?</p>
-        <div className="cta-links">
-          <a href="/projects" className="cta-link">
-            View Projects
-          </a>
-          <span>•</span>
-          <a href="/resume.pdf" className="cta-link">
-            Download Resume
-          </a>
-        </div>
-      </div>
     </section>
   );
 };
